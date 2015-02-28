@@ -26,7 +26,6 @@ Suppose we have a 32 byte region of memory, and we need to always align our ent
 	char data[MEM_SIZE] = { 0 };
 	memcpy(data, HEADER, HEADER_LENGTH);
 
-
 Our **data** buffer looks like this:
 
 ![db1]
