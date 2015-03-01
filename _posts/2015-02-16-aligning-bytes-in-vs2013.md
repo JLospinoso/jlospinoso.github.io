@@ -13,6 +13,8 @@ categories: [c++, developing, software, visual studio]
 [db1]: {{site.url}}/images/2015-02-16_1.jpg "Data Buffer 1"
 [db2]: {{site.url}}/images/2015-02-16_2.jpg "Data Buffer 2"
 
+![C++11]({{site.url}}/images/cpp11.jpg)
+
 In some situations where fine-grained control over memory is required, we must be careful about how we pack bytes into memory. These alignment issues can arise e.g. with particular kinds of processors or when crafting low-level input/output for hardware.
 
 C++11 offers the `alignof`/`alignas` operators ([OpenSTD][1]) but unfortunately they are not implemented in the Visual Studio 2013 compiler ([VS2013][2]). It is possible to lean on `std::align`, however ([CPP Align][3]).
