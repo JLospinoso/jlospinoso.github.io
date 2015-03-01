@@ -1,2 +1,3 @@
+url: https://jlospinoso.github.io
 markdown: rdiscount
-pygments: true
+highlighter: pygments
