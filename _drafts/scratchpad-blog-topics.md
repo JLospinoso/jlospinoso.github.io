@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Scratchpad - Blog Topics
-date: 2015-02-16 03:36
 categories: []
 ---
 
