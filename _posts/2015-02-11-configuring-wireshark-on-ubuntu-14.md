@@ -2,11 +2,10 @@
 layout: post
 title: Configuring Wireshark on Ubuntu 14
 date: 2015-02-11 03:49
-author: jalospinoso
-comments: true
+image: /images/wireshark.png
+tag: Wireshark can be configured to work without having root privileges
 categories: [software, wireshark, networks, ubuntu]
 ---
-![Wireshark]({{site.url}}/images/wireshark.png)
 
 Wireshark can be installed in Ubuntu very easily:
 

@@ -2,16 +2,10 @@
 layout: post
 title: Getting a Local Kernel Debugger Running
 date: 2015-01-11 19:12
-author: jalospinoso
-comments: true
+image: /images/2015_01_11_1.jpg
+tag: A brief walkthrough for WinDbg in local kernel mode
 categories: [developing, kernel mode, operating systems, software, software engineering, windows internals]
 ---
-
-{{ page.title }}
-==
-*{{ page.date }}*
-
-![WinDbg]({{ site.url }}/images/2015_01_11_1.jpg)
 
 There is a steep learning curve when getting familiar with Windows Internals. As a first step, it is a good idea to get a local kernel debugger working on your machine. This will allow you to follow along with whatever learning materials are at hand (e.g. Windows Internals). Here's a minimal path to get windbg.exe (pronounced "Wind Bag") up and running:
 

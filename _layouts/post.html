@@ -2,11 +2,21 @@
 layout: default
 ---
 <div id="post">
-{{ content }}
+  <span class="title">{{ page.title }}</span>
+  <span class="date">{{ page.date | date: "%B %-d, %Y" }}</span>
+  {% if page.image %}
+  <img src="{{ site.url }}{{ page.image }}" class="image">
+  {% endif %}
+  {% if page.tag %}
+  <div class="tag">{{ page.tag }}</div>
+  {% endif %}
+  <div class="content">
+    {{ content }}
+  </div>
 </div>
 
 <div id="related">
-  <h2>Related Posts</h2>
+  <div class="title">Related Posts</div>
   <ul class="posts">
     {% for post in site.related_posts limit:3 %}
       <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>

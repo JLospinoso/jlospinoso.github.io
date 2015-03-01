@@ -1,14 +1,11 @@
 ---
 layout: post
-title: Tools for fixing symbols issues in Windbg
+title: Tools for fixing symbols issues in WinDbg
 date: 2015-01-12 03:08
-author: jalospinoso
-comments: true
+image: /images/windbg.gif
+tag: Symbols can give some trouble when WinDbg is first installed
 categories: [developing, kernel mode, operating systems, software, software engineering, windows internals]
 ---
-
-![WinDbg]({{site.url}}/images/windbg.gif)
-
 Before worrying about setting your environment variables, e.g. `_NT_SYMBOL_PATH`, get the Windbg session working.
 
 Try:

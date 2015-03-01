@@ -72,6 +72,10 @@ ul.posts {
     font-size: 80%;
   }
 
+  .content {
+	margin-bottom:2em;
+  }
+  
 /*****************************************************************************/
 /*
 /* Site
@@ -88,8 +92,28 @@ ul.posts {
 
 .title {
   color: #a00;
+  font-size: 120%;
   font-weight: bold;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
+}
+
+.date {
+  color: #aaa;
+  font-style: italic;
+  margin-left: 1em;
+}
+
+.tag {
+  font-style: italic;
+  text-align: center;
+  margin-top: 1em;
+}
+
+.image {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:3em;
 }
 
   .site .title a {
@@ -176,7 +200,14 @@ ul.posts {
       border: none;
     }
 
-	/* Pagination */
+	
+	
+/*****************************************************************************/
+/*
+/* Pagination
+/*
+/*****************************************************************************/
+
 	#pagination {
 		padding: 3px;
 		margin: 3px;

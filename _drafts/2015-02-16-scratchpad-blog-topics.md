@@ -2,11 +2,11 @@
 layout: post
 title: Scratchpad - Blog Topics
 date: 2015-02-16 03:36
-author: jalospinoso
-comments: true
 categories: []
 ---
+
 C++
+
 1. lvalues and rvalues (p.166)
 2. initializer syntax
 

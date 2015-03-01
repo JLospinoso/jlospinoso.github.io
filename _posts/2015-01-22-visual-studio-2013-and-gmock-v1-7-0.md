@@ -2,15 +2,12 @@
 layout: post
 title: Visual Studio 2013 and gmock v1.7.0
 date: 2015-01-22 23:39
-author: jalospinoso
-comments: true
+image: /images/gmock.jpg
+tag: gmock is an excellent unit testing framework, but it takes some effort to get setup
 categories: [developing, gmock, software, software engineering, test driven development, visual studio]
 ---
-
 [1]: https://code.google.com/p/googlemock/
 [2]: https://code.google.com/p/googlemock/downloads/detail?name=gmock-1.7.0.zip
-
-![gmock]({{site.url}}/images/gmock.jpg)
 
 gmock is a unit testing and mocking framework available from [Google][1]. Getting it set up and working correctly with a VS 2013 project takes a little bit of ceremony, however--and the errors one can stumble upon are not always the most helpful.
 

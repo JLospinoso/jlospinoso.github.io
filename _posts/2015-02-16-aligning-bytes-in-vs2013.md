@@ -2,8 +2,8 @@
 layout: post
 title: Aligning bytes in VS2013
 date: 2015-02-16 00:27
-author: jalospinoso
-comments: true
+image: /images/cpp11.jpg
+tag: Byte alignment can be much simpler with C++11
 categories: [c++, developing, software, visual studio]
 ---
 [1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2341.pdf
@@ -12,8 +12,6 @@ categories: [c++, developing, software, visual studio]
 [3]: http://pastebin.com/gb9E5QdW
 [db1]: {{site.url}}/images/2015-02-16_1.jpg "Data Buffer 1"
 [db2]: {{site.url}}/images/2015-02-16_2.jpg "Data Buffer 2"
-
-![C++11]({{site.url}}/images/cpp11.jpg)
 
 In some situations where fine-grained control over memory is required, we must be careful about how we pack bytes into memory. These alignment issues can arise e.g. with particular kinds of processors or when crafting low-level input/output for hardware.
 

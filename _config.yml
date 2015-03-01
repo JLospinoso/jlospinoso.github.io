@@ -1,5 +1,5 @@
 url: https://jlospinoso.github.io
-paginate: 5
+paginate: 3
 
 markdown: rdiscount
 highlighter: pygments
