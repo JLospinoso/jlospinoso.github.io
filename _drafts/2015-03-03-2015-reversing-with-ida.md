@@ -16,6 +16,8 @@ categories: [developing, software, software engineering, reverse engineering, as
 [8]: https://msdn.microsoft.com/en-us/library/yd4f8bd1%28vs.71%29.aspx
 [9]: http://support.microsoft.com/kb/177429
 [10]: https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx
+[11]: http://filebin.ca/1tt5rHfH9IeI/ConsoleApplication1.zip
+[12]: http://filebin.ca/1tt64OgFqLGk/ConsoleApplication1.pdb
 
 The ability to reverse engineer binaries is extremely important in many settings. Whether [analyzing malware][2] (or [writing malware][3]...), delving into [undocumented APIs][1], or even just [for fun][4], you will not have the source available. Any kind of thorough reversing effort will invariably involve staring at lots of assembly (or perhaps Java bytecode/.NET IL for managed code).
 
@@ -198,11 +200,27 @@ After staring at enough Dumpbin dumps, it might be possible to tease out some un
 
 Nothing seems to have happened We still really don't know what our binary is doing.
 
-# IDA Pro Free
+# IDA Free
 We'll be using the free version of the *interactive disassembler* IDA 5.0 Freeware available [here][6]. It turns out that disassembling a binary is pretty complicated, and IDA is widely regarded as the best tool for doing it. After installing the free version, fire it up.
 
+1. Click on "New : Disassemble a new file"
+2. Click "PE Executable" and click "OK"
+3. Navigate to "reversing-demo.exe" and Open it.
+4. Let's use the default options in the wizard. Continue clicking "Next >" until complete.
+5. As we guessed from the `.pdb` file in Strings, the binary was linked with debug information. Helpfully, a pop-up box confirms this and asks if we have the PDB available. I've put the PDB into the links section below, but try reversing without this information first. Click "No" when asked to link in the PDB file.
 
-# Source
+IDA will do a whole bunch of work at this point trying to disassemble your file.
+
+Let's do a very quick orientation to IDA. First thing to notice is the slider:
+
+![IDA Slider]({{site.url}}images/2015_03_03_1/slider.jpg)
+
+There are a great many ways to start analysis of a binary in IDA, but the most important thing to keep in mind is what your goal is. As you'll see, this binary is extremely simple--but it would take quite a bit of time to step through the assembly code line-by-line to try to figure out what's going on.
+
+# Spoiler alert!
+Try not to look at the below sections before trying to reverse the binary yourself!
+
+### Source
 	#include "stdio.h"
 
 	int main(int argc, char *argv[]) {
@@ -219,3 +237,8 @@ We'll be using the free version of the *interactive disassembler* IDA 5.0 Freewa
 		}
 		return 0;
 	}
+
+### Links to Binary/PDB
+* [Source][12] (MD5: CB2EE7B867334D1AD8844E7F03EB89B9)
+* [PDB][11] (MD5: AFC2ADB7ED0E2C01AE1EAEDB5FA78B80)
+* [Binary][5] (MD5: 255134D98BC4A524A1777D16FF8C2642)
