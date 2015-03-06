@@ -18,6 +18,7 @@ categories: [developing, software, software engineering, reverse engineering, as
 [10]: https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx
 [11]: http://filebin.ca/1tt5rHfH9IeI/ConsoleApplication1.zip
 [12]: http://filebin.ca/1tt64OgFqLGk/ConsoleApplication1.pdb
+[13]: https://msdn.microsoft.com/en-us/magazine/cc301805.aspx
 
 The ability to reverse engineer binaries is extremely important in many settings. Whether [analyzing malware][2] (or [writing malware][3]...), delving into [undocumented APIs][1], or even just [for fun][4], you will not have the source available. Any kind of thorough reversing effort will invariably involve staring at lots of assembly (or perhaps Java bytecode/.NET IL for managed code).
 
@@ -213,9 +214,47 @@ IDA will do a whole bunch of work at this point trying to disassemble your file.
 
 Let's do a very quick orientation to IDA. First thing to notice is the slider:
 
-![IDA Slider]({{site.url}}images/2015_03_03_1/slider.jpg)
+![IDA Slider]({{site.url}}/images/2015_03_03_1/slider.jpg)
+
+This slider allows you to click into a region of the binary and investigate its contents. For example,
+the pink region contains all of the `.idata` which is [PE Format][13] speak for all the imports. You can see function definitions that should correspond with our Dumpbin analysis from earlier (side project: investigate the "Exports" and "Imports" tabs to see if they correspond with the output we found).
+
+Clicking into a blue region navigates us to a `.text` section that contains all of our executable code (assembly):
+
+![IDA Slider]({{site.url}}/images/2015_03_03_1/ida_view_space.jpg)
+
+You can scroll through this disassembly and, in theory, figure out what's going on from here. Fortunately, IDA has a graph version of this "IDA View" which can be accessed by pressing the `Space` bar:
+
+![IDA Slider]({{site.url}}/images/2015_03_03_1/ida_view.jpg)
+
+This view is perhaps what IDA is best known for: each block represents a chunk of code, and the lines represent jumps between the code blocks (both conditional and unconditional). This is much, much easier to follow than scrolling through pages and pages of disassembly.
+
+The final window we'll explore is the strings view:
+
+![IDA Slider]({{site.url}}/images/2015_03_03_1/strings.jpg)
+
+You'll notice that the output corresponds with what we got from running Strings earlier.
 
 There are a great many ways to start analysis of a binary in IDA, but the most important thing to keep in mind is what your goal is. As you'll see, this binary is extremely simple--but it would take quite a bit of time to step through the assembly code line-by-line to try to figure out what's going on.
+
+Well, we ran the binary and nothing happened, but there's a `printf` statement that showed up in both Strings and Dumpbin. Take a look at the Strings window and identify the `printf` line. It should appear at `.rdata:0040232A`. Let's have a look at the `Imports` tab:
+
+![IDA Slider]({{site.url}}/images/2015_03_03_1/imports.jpg)
+
+I've highlighted the line where `printf` is imported from `MSVCR120.dll`. Let's click on this entry, which brings us into the end of the `.idata` section:
+
+	.idata:00402090 ; int printf(const char *,...)
+	.idata:00402090                 extrn printf:dword      ; DATA XREF: sub_401000+4Dr
+
+The IDA hotkey `x` is immensely useful here. We'd like to find out where else in the binary this import is referred to. After clicking on `printf`, press `x`:
+
+![IDA Slider]({{site.url}}/images/2015_03_03_1/xrefs.jpg)
+
+We can see here that `printf` is referred to one time in a subroutine (`sub_401000`). Let's click on it and enter the graph view around this call.
+
+![IDA Slider]({{site.url}}/images/2015_03_03_1/printf-routine.jpg)
+
+# CONTINUE HERE
 
 # Spoiler alert!
 Try not to look at the below sections before trying to reverse the binary yourself!
