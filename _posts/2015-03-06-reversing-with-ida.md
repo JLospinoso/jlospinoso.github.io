@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Getting Started with Reverse Engineering
-date: 2015-03-03 21:00
+date: 2015-03-06 21:00
 image: /images/2015_03_03_1.JPG
 tag: Basic static analysis with strings, dumpbin, and IDA
 categories: [developing, software, software engineering, reverse engineering, assembly]
