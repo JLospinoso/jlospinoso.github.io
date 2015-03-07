@@ -3,7 +3,7 @@ layout: post
 title: Getting Started with Reverse Engineering
 date: 2015-03-03 21:00
 image: /images/2015_03_03_1.JPG
-tag: Basic static analysis with strings, disassembly, and IDA
+tag: Basic static analysis with strings, dumpbin, and IDA
 categories: [developing, software, software engineering, reverse engineering, assembly]
 ---
 [1]: http://undocumented.ntinternals.net/
@@ -19,6 +19,7 @@ categories: [developing, software, software engineering, reverse engineering, as
 [11]: http://filebin.ca/1tt5rHfH9IeI/ConsoleApplication1.zip
 [12]: http://filebin.ca/1tt64OgFqLGk/ConsoleApplication1.pdb
 [13]: https://msdn.microsoft.com/en-us/magazine/cc301805.aspx
+[14]: https://msdn.microsoft.com/query/dev12.query?appId=Dev12IDEF1&l=EN-US&k=k(__getmainargs);k(DevLang-C%2B%2B);k(TargetOS-Windows)&rd=true
 
 The ability to reverse engineer binaries is extremely important in many settings. Whether [analyzing malware][2] (or [writing malware][3]...), delving into [undocumented APIs][1], or even just [for fun][4], you will not have the source available. Any kind of thorough reversing effort will invariably involve staring at lots of assembly (or perhaps Java bytecode/.NET IL for managed code).
 
@@ -221,17 +222,17 @@ the pink region contains all of the `.idata` which is [PE Format][13] speak for 
 
 Clicking into a blue region navigates us to a `.text` section that contains all of our executable code (assembly):
 
-![IDA Slider]({{site.url}}/images/2015_03_03_1/ida_view_space.jpg)
+![IDA View Space]({{site.url}}/images/2015_03_03_1/ida_view_space.jpg)
 
 You can scroll through this disassembly and, in theory, figure out what's going on from here. Fortunately, IDA has a graph version of this "IDA View" which can be accessed by pressing the `Space` bar:
 
-![IDA Slider]({{site.url}}/images/2015_03_03_1/ida_view.jpg)
+![IDA View]({{site.url}}/images/2015_03_03_1/ida_view.jpg)
 
 This view is perhaps what IDA is best known for: each block represents a chunk of code, and the lines represent jumps between the code blocks (both conditional and unconditional). This is much, much easier to follow than scrolling through pages and pages of disassembly.
 
 The final window we'll explore is the strings view:
 
-![IDA Slider]({{site.url}}/images/2015_03_03_1/strings.jpg)
+![Strings]({{site.url}}/images/2015_03_03_1/strings.jpg)
 
 You'll notice that the output corresponds with what we got from running Strings earlier.
 
@@ -252,12 +253,108 @@ The IDA hotkey `x` is immensely useful here. We'd like to find out where else in
 
 We can see here that `printf` is referred to one time in a subroutine (`sub_401000`). Let's click on it and enter the graph view around this call.
 
-![IDA Slider]({{site.url}}/images/2015_03_03_1/printf-routine.jpg)
+![Printf]({{site.url}}/images/2015_03_03_1/printf-routine.jpg)
 
-# CONTINUE HERE
+This codepath looks like it is setting up a `printf`:
 
-# Spoiler alert!
-Try not to look at the below sections before trying to reverse the binary yourself!
+	mov     eax, [ebp+var_4]
+	push    eax
+	mov     eax, [ebp+var_8]
+	push    eax
+	mov     eax, [ebp+var_C]
+	push    eax
+	mov     eax, [ebp+var_10]
+	push    eax
+	push    offset aCCCC    ; "%c%c%c%c\n"
+	call    ds:printf
+
+Arguments are pushed onto the stack from right-to-left in all modern calling conventions (including `__cdecl`, usually the calling convention for `printf` style). We can then see that `printf` is called with the arguments
+
+	printf ("%c%c%c%c\n", [ebp+var_10], [ebp+var_C], [ebp+var_8], [ebp+var_4])
+
+Let's track these characters throughout the code. `ebp` is the stack base pointer, and positive offsets are local variables (not hugely important if you are not familiar with how functions are setup in x86 assembly).
+
+IDA helps us out by labeling each of these variables `var` and their positive offset from `ebp` (notice they are 4 byte offsets, starting with 4). We can rename these variables throughout the code to help us in our investigation. Simply click a variable, type `n` and enter a new name. Here, I've chosen to name each character by its order in the `printf` call:
+
+![PrintfNamed]({{site.url}}/images/2015_03_03_1/printf-routine-named.jpg)
+
+Now it should be a little clearer what's going on. First, the stack gets set up with a base pointer, and 16 bytes (10h) are set aside for local variables:
+
+	push    ebp
+	mov     ebp, esp
+	sub     esp, 10h
+	
+Next, the first and only argument to the function, `arg_0` is compared with 2,
+
+	cmp     [ebp+arg_0], 2
+
+and our four characters are given initial values:
+
+	mov     [ebp+character1], 0Ah
+	mov     [ebp+character2], 27h
+	mov     [ebp+character3], 3Bh
+	mov     [ebp+character4], 63h
+
+These values, `0a 27 3b 63` don't correspond to any obvious ASCII string (odd...)
+
+Next, we have a jump conditional:
+
+	jnz     short loc_401056
+
+the four `mov` operations don't affect the `cf` flag, so this short jump happens only if `arg_0` is not `2`. If `arg_0` *is* `2`, we move into the `printf` setup path. It looks like we perform some bitwise operations (`xor` each character by `42h`). If `arg_0` is any other value, we exit the function:
+
+	loc_401056:
+	xor     eax, eax
+	mov     esp, ebp
+	pop     ebp
+	retn
+
+# Putting it all together
+Okay, so static analysis of this function tells us that it takes a value, and if that value is `2`, we print four characters. If not, we exit. Let's name the function `PrintIfTwo` by selecting its current name, `sub_401000`, and pressing `n`:
+
+![PrintIfTwo]({{site.url}}/images/2015_03_03_1/print-if-two.jpg)
+
+Now that our function is named, let's see where it's getting called. With `PrintIfTwo` still selected, press `x`. It seems that it's only called from one location, so select it.
+
+![Initenv]({{site.url}}/images/2015_03_03_1/initenv.jpg)
+
+It turns out that `__initenv` is the last function that the C Runtime invokes before handing off control to our code.  Our `JumpIfTwo` function takes one argument, so we are only interested in the last variable to get pushed onto the stack just before our call: `dword_403024`. Let's rename this `PrintIfTwoArgument` and press `x` again to see where this variable is set.
+
+The only other function calling `PrintIfTwoArgument` is `sub_401124+2b`. Let's navigate there and see what's going on:
+
+![GetMainArgs]({{site.url}}/images/2015_03_03_1/getmainargs.jpg.jpg)
+
+`__getmainargs` is a C Runtime call that--you guessed it--[gets the main arguments][14]:
+
+	int __getmainargs(
+		int * _Argc, 
+		char *** _Argv, 
+		char *** _Env, 
+		int _DoWildCard,
+		_startupinfo * _StartInfo);
+
+So our argument is `argc`, the number of tokens given at the command line (including the name of the binary!)
+
+# Dynamic analysis
+Let's go back and try running the program with one argument:
+
+	> reversing-demo.exe foo
+	  Hey!
+
+Yahtzee!
+
+Notice that it wouldn't work with more than one argument (more than two tokens):
+
+	> reversing-demo.exe
+	> reversing-demo.exe foo bar
+	> reversing-demo.exe foo bar bas
+
+
+# Wrapping up
+Even for this exceedingly simple binary, the reverse engineering process took us through a lot of steps. Nugging through assembly is rough going, but it can be made bearable through the use of smart tools like IDA (and, of course, MSDN). 
+
+It's really simple to get started reversing on your own! Write your own programs (or take the programs of others) and try to figure out how it does what it does.
+
 
 ### Source
 	#include "stdio.h"
