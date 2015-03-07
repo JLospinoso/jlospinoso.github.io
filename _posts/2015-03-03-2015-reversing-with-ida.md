@@ -322,7 +322,7 @@ It turns out that `__initenv` is the last function that the C Runtime invokes be
 
 The only other function calling `PrintIfTwoArgument` is `sub_401124+2b`. Let's navigate there and see what's going on:
 
-![GetMainArgs]({{site.url}}/images/2015_03_03_1/getmainargs.jpg.jpg)
+![GetMainArgs]({{site.url}}/images/2015_03_03_1/getmainargs.jpg)
 
 `__getmainargs` is a C Runtime call that--you guessed it--[gets the main arguments][14]:
 
