@@ -1,13 +1,15 @@
 ---
 layout: post
 title: Scratchpad for Blog Topics
-categories: []
+categories: [Notes]
 ---
 
 # C++
 
 1. lvalues and rvalues (p.166)
 2. initializer syntax
+3. Lambdas
+4. Casts
 
 # Kernel development
 Sysmon demo as WDM driver
