@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Lambda expressions and C++11
-image: full-functional.jpg
+image: /images/full-functional.jpg
 tag: Using lambdas can make for some wonderfully elegant code
 categories: [c++, developing, software, visual studio]
 ---
