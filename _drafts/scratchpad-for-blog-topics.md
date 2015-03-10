@@ -8,7 +8,6 @@ categories: [Notes]
 
 1. lvalues and rvalues (p.166)
 2. initializer syntax
-3. Lambdas
 4. Casts
 
 # Kernel development
