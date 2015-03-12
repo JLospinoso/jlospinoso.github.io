@@ -20,6 +20,10 @@ categories: [c++, developing, software, visual studio]
 [12]: http://en.cppreference.com/w/cpp/language/lambda
 [13]: http://stackoverflow.com/questions/19208561/scala-predicates-and-filter-functions
 [14]: http://en.cppreference.com/w/cpp/language/storage_duration
+[15]: http://www.meetingcpp.com/index.php/imprint.html
+[16]: https://twitter.com/meetingcpp
+[17]: http://en.cppreference.com/w/cpp/algorithm/count
+[18]: http://en.cppreference.com/w/cpp/algorithm/transform
 
 According to [Wikipedia][1], a lambda expression (*lambda*) is "a function that is not bound to an identifier." In other words, it's a function that you can pass around without having to name (define) it separately. These are ubiquitous in functional programming languages like [Haskell][2] and [F#][3]. Why? 
 
@@ -294,12 +298,32 @@ Now check out our new implementations for consonant and vowels.
 
 The difference is huge.
 
+*Update:* Thanks to [Code Node][15] (Twitter [@meetingcpp][16]) for pointing out that we can go even further with our refactor. Two `std::` C++11 functions allow us to throw out both `map_char` and `map_word`:
+
+* `std::count_if` will do the dirty work of applying a predicate and counting how many times `true` is returned (this replaces `map_char`)
+* `std::transform` is a `map` function (this replaces `map_word`)
+
+An example is available on [github][7]:
+
+	std::vector<int> WordListHelper::vowels_fn2(const std::vector<std::string> words)
+	{
+		std::vector<int> result{};
+		result.resize(words.size());
+		std::transform(words.begin(), words.end(), result.begin(), 
+			[&](std::string word){ 
+				return std::count_if(word.cbegin(), word.cend(), this->is_vowel); 
+			});
+		return result;
+	}
+	
+For more information, see the cppreference on [count_if][17] and [transform][18].
+
 # Conclusion
 	
 It is vastly easier to extend this class to many other kinds of word statistics by focusing on the functors rather than all the looping. All of the benefits of abstraction that we're used to still apply here: since our loop-and-accumulate map functions are implemented in a single place (i.e. not copied and pasted all over the place with small variations), we could quite easily modify our class for lazy evaluation or parallelize.
 
 The decision on whether to use the lambda syntax or the old-school function declaration/function pointer syntax is largely a style point. Lambdas are certainly some welcome syntactic sugar to C++11. The larger point is that they get us all thinking about functions as first-class citizens, and therefore as prime candidates for abstraction. The results can be stunning.
-	
+
 # Miscellany
 
 * All of the source is available at [https://github.com/JLospinoso/LambdasCpp11][7] as a VS 2013 Solution.
