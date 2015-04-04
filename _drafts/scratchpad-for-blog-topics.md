@@ -25,4 +25,3 @@ Sysmon demo as WDM driver
 
 * String operators, disassembled code
 * Structs in IDA Pro
-* x86 calling conventions (cdecl, stdcall, fastcall, thiscall)
