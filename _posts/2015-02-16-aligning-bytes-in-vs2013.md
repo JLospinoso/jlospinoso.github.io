@@ -9,7 +9,7 @@ categories: [c++, developing, software, visual studio]
 [1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2341.pdf
 [2]: https://msdn.microsoft.com/en-us/library/hh567368.aspx
 [3]: http://en.cppreference.com/w/cpp/memory/align
-[3]: http://pastebin.com/gb9E5QdW
+[3]: https://gist.github.com/JLospinoso/1abf58847c41b908764568a477256f46
 [db1]: {{site.url}}/images/2015-02-16_1.jpg "Data Buffer 1"
 [db2]: {{site.url}}/images/2015-02-16_2.jpg "Data Buffer 2"
 
@@ -19,12 +19,14 @@ C++11 offers the `alignof`/`alignas` operators ([OpenSTD][1]) but unfortunately 
 
 Suppose we have a 32 byte region of memory, and we need to always align our entries along 8-byte boundaries. In the example, we use up the first 9 bytes of the memory:
 
-	#define MEM_SIZE 32
-	#define HEADER "\x01\x02\x03\x04\x05\x06\x07\x08\x09"
-	#define HEADER_LENGTH 9
+```cpp
+#define MEM_SIZE 32
+#define HEADER "\x01\x02\x03\x04\x05\x06\x07\x08\x09"
+#define HEADER_LENGTH 9
 
-	char data[MEM_SIZE] = { 0 };
-	memcpy(data, HEADER, HEADER_LENGTH);
+char data[MEM_SIZE] = { 0 };
+memcpy(data, HEADER, HEADER_LENGTH);
+```
 
 Our **data** buffer looks like this:
 
@@ -32,14 +34,16 @@ Our **data** buffer looks like this:
 
 The next region of data needs to be aligned at an 8 byte boundary (i.e. at the 16th byte), and we can lean on `std::align`:
 
-	#define ALIGNMENT 8
-	#define BUFFER "\x10\x11\x12\x13\x14\x15\x16\x17"
-	#define BUFFER_LENGTH 8
-	
-	void *endOfHeader = &amp;(data[0]) + HEADER_LENGTH;
-	std::size_t space = MEM_SIZE - HEADER_LENGTH;
-	void *nextAvailableByte = std::align(ALIGNMENT, BUFFER_LENGTH, endOfHeader, space);
-	memcpy(nextAvailableByte, BUFFER, BUFFER_LENGTH);
+```cpp
+#define ALIGNMENT 8
+#define BUFFER "\x10\x11\x12\x13\x14\x15\x16\x17"
+#define BUFFER_LENGTH 8
+
+void *endOfHeader = &amp;(data[0]) + HEADER_LENGTH;
+std::size_t space = MEM_SIZE - HEADER_LENGTH;
+void *nextAvailableByte = std::align(ALIGNMENT, BUFFER_LENGTH, endOfHeader, space);
+memcpy(nextAvailableByte, BUFFER, BUFFER_LENGTH);
+```
 
 `std::align` takes four arguments:
 1. The size of the alignment (in our case, 8 bytes)
@@ -50,4 +54,4 @@ The result of our `memcpy` is `BUFFER` copied nicely along our 8 byte boundar
 
 ![db2]
 
-A complete example is available on [Pastebin][3].
+A complete example is available on [github][3].

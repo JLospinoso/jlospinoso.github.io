@@ -10,31 +10,41 @@ Before worrying about setting your environment variables, e.g. `_NT_SYMBOL_PATH`
 
 Try:
 
-	lkd> .symfix
+```
+lkd> .symfix
+```
 
 This will set your symbol search path to the Microsoft msdl symbol server. Next, reload your symbols:
 
-	lkd> .reload /f
+```
+lkd> .reload /f
+```
 
 This will force the debugger to immediately reload all symbols. This should fix the issue. If it does not, try
 
-	lkd> !sym noisy
+```
+lkd> !sym noisy
+```
 
 This will turn on your symbol prompts. Try again running `.symfix`, looking for clues in the output.
 
 **Once your symbols are fixed**, you can fix your environment variables. First, ensure that you have created a symbols cache, e.g. `C:\Symbols`. Add it to `.symfix` via the command:
 
-	lkd> .symfix +C:\Symbols
+```
+lkd> .symfix +C:\Symbols
+```
 
 Ensure that symbols still work (do a `.reload`), then have a look at your `.sympath`:
 
-	lkd> .sympath
+```
+lkd> .sympath
 
-	Symbol search path is: symsrv*symsrv.dll*C:\Symbols*http://msdl.microsoft.com/download/symbols
-	Expanded Symbol search path is: symsrv*symsrv.dll*c:\windowssymbols*http://msdl.microsoft.com/download/symbols
-	************* Symbol Path validation summary **************
-	Response Time (ms) Location
-	Deferred symsrv*symsrv.dll*C:\WindowsSymbols*http://msdl.microsoft.com/download/symbols
+Symbol search path is: symsrv*symsrv.dll*C:\Symbols*http://msdl.microsoft.com/download/symbols
+Expanded Symbol search path is: symsrv*symsrv.dll*c:\windowssymbols*http://msdl.microsoft.com/download/symbols
+************* Symbol Path validation summary **************
+Response Time (ms) Location
+Deferred symsrv*symsrv.dll*C:\WindowsSymbols*http://msdl.microsoft.com/download/symbols
+```
 
 Now set your `_NT_SYMBOL_PATH` using the output above.
 

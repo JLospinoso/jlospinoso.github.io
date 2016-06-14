@@ -37,25 +37,28 @@ Add a test
 
 In your test project, create a new source file called `HelloTest.cpp` with the following contents:
 
-	#include "gmock/gmock.h"
-	
-	TEST(HelloTest, AssertsCorrectly) {
-		int value = 42;
-		ASSERT_EQ(42, value);
-	}
+```c
+#include "gmock/gmock.h"
+
+TEST(HelloTest, AssertsCorrectly) {
+	int value = 42;
+	ASSERT_EQ(42, value);
+}
+```
 
 Compile your solution. In your output folder, you will see a new artifact with a name corresponding to your new test project. This executable is a console application that runs all of the tests in your source:
 
-	> MyTest.exe
-	Running main() from gmock_main.cc
-	[==========] Running 1 test from 1 test case.
-	[----------] Global test environment set-up.
-	[----------] 1 test from MyTest
-	[ RUN      ] HelloTest.AssertsCorrectly
-	[       OK ] HelloTest.AssertsCorrectly(0 ms)
-	[----------] 1 test from MyTest(0 ms total)
+```
+> MyTest.exe
+Running main() from gmock_main.cc
+[==========] Running 1 test from 1 test case.
+[----------] Global test environment set-up.
+[----------] 1 test from MyTest
+[ RUN      ] HelloTest.AssertsCorrectly
+[       OK ] HelloTest.AssertsCorrectly(0 ms)
+[----------] 1 test from MyTest(0 ms total)
 
-	[----------] Global test environment tear-down
-	[==========] 1 test from 1 test case ran. (0 ms total)
-	[  PASSED  ] 1 test.
-
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test case ran. (0 ms total)
+[  PASSED  ] 1 test.
+```

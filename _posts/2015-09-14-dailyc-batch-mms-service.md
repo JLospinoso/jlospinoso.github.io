@@ -30,23 +30,28 @@ The service works really well for sending baby pictures to adoring (petulant?) r
 # Getting started
 First step is to obtain the dailyc source code, which is available on [Github][2]:
 
-	git clone git@github.com:JLospinoso/dailyc
+```sh
+git clone git@github.com:JLospinoso/dailyc
+```
 
 Since dailyc uses the [gradle wrapper][7], you should be able to execute the `gradlew` script (both on Windows and other operating systems). This script will automagically download Gradle for you, then run whatever Gradle task you give it. Note: you must have the [Java SDK][8] installed.
 
 You can verify that dailyc is compiling and that the unit tests are passing by issuing:
 
-	gradlew build
+```sh
+gradlew build
+```
 
 ## Mogreet Account
 You will need to sign up for a (free) [Mogreet][1] account to be able to send messages. You get a $25 credit (which goes a long way at ~$0.01 per text).
 
 Once you've obtained an account, open up the [Mogreet Dashboard][11] and take note of the `API Credentials` section. You will need to update the following fields in both  `dailyc-core\src\main\resources\application.properties` and `dailyc-core\src\test\resources\application.properties` with the corresponding information in Mogreet Dashboard:
 
-	clientId=1111
-	token=deadbeefdeadbeefdeadbeef
-	campaignId=999999
-
+```properties
+clientId=1111
+token=deadbeefdeadbeefdeadbeef
+campaignId=999999
+```
 Your `campaignId` is the `MMS campaign id` in the Dashboard.
 
 ## Configuration
@@ -58,29 +63,35 @@ There are a few configuration files you'll need to modify to get dailyc working 
 
 In `dailyc-core\src\main\resources\application.properties`, we have three fields that drive all of the scheduling. These are [cron][6] strings. So, for example, if you'd like heartbeats every hour, batch at 0500, and send at 0600, you would have:
 
-	sendCron=0 0 6 * * *
-	batchCron=0 0 5 * * *
-	heartbeatCron=0 0 * * * *
+```properties
+sendCron=0 0 6 * * *
+batchCron=0 0 5 * * *
+heartbeatCron=0 0 * * * *
+```
 
 Next, we must tell dailyc where our images are stored, whom to subscribe to the service, and what messages to send. All of this information is given in a JSON file pointed to by `application.properties`. Suppose we specify
 
-	configPath=c:/dailyc/config.json
+```properties
+configPath=c:/dailyc/config.json
+```
 
 Use the format given in the [sample configuration][13] to create `c:/dailyc/config.json`:
 
-	{
-	  "imageDirectory": "c:/dailyc/img",
-	  "subscribers": [
-		"5551234567",
-		"5551234568",
-		"..."
-	  ],
-	  "messages": [
-		"Hello from your favorite granddaughter!",
-		"Good morning!",
-		"..."
-	  ]
-	}
+```json
+{
+  "imageDirectory": "c:/dailyc/img",
+  "subscribers": [
+	"5551234567",
+	"5551234568",
+	"..."
+  ],
+  "messages": [
+	"Hello from your favorite granddaughter!",
+	"Good morning!",
+	"..."
+  ]
+}
+```
 
 All you need to do now is paste a body of `.jpg`s into the `imageDirectory` (in this case `c:/dailyc/img`), and `dailyc` is configured to run.
 
@@ -89,16 +100,20 @@ Since dailyc uses [Spring Boot][3] and [GORM][5], it is very simple to configure
 
 This is configured--you guessed it--in the `application.properties`. A [Mysql][14] database, for example, could be configured as follows:
 
-	database.driver=com.mysql.jdbc.Driver
-	database.url=jdbc:mysql://mysql.domain.com/dailyc
-	database.username=dailyc
-	database.password=abc123
-	
+```properties
+database.driver=com.mysql.jdbc.Driver
+database.url=jdbc:mysql://mysql.domain.com/dailyc
+database.username=dailyc
+database.password=abc123
+```
+
 Assuming you've created the database and user correctly, it really is that simple.
 
 # Running dailyc
-As dailyc is a [Spring Boot][3] application, execution is as simple as 
+As dailyc is a [Spring Boot][3] application, execution is as simple as
 
-	gradlew bootRun
-	
+```sh
+gradlew bootRun
+```
+
 Please provide feedback/bug reports for v0.1.0 [on Github][2].
