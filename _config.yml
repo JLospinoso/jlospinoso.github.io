@@ -1,6 +1,9 @@
-url: https://jlospinoso.github.io
-paginate: 3
 
-markdown: rdiscount
-highlighter: pygments
+title: lospi.net home
+baseurl: ""
+url: http://lospi.net
+paginate: 3
+markdown: kramdown
+github_username:  jlospinoso
+twitter_username: jalospinoso
 gems: [jekyll-paginate]
