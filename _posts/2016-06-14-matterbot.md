@@ -43,8 +43,11 @@ You can see your docker container's status with `docker ps`:
 
 ```
 $ docker ps
-CONTAINER ID        IMAGE                           COMMAND                  CREATED             STATUS              PORTS                              NAMES
-f25bbb6897ca        mattermost/mattermost-preview   "/bin/sh -c ./docker-"   3 minutes ago       Up 3 minutes        3306/tcp, 0.0.0.0:8065->8065/tcp   mattermost-preview
+CONTAINER ID        IMAGE                           COMMAND                  CREATED             
+
+f25bbb6897ca        mattermost/mattermost-preview   "/bin/sh -c ./docker-"   3 minutes ago
+     STATUS              PORTS                              NAMES
+     Up 3 minutes        3306/tcp, 0.0.0.0:8065->8065/tcp   mattermost-preview
 ```
 
 You'll note that the container has mapped the docker host's port 8065. If you point a web
@@ -145,10 +148,12 @@ public:
 	}
 
 	wstring get_help() override {
-		return L"`echo [MESSAGE]`\n===\n`echo` will respond with whatever message you give it.";
+		return L"`echo [MESSAGE]`\n===\n`echo` will respond with whatever
+		message you give it.";
 	}
 
-	wstring handle_command(wstring team, wstring channel, wstring user, wstring command_text) override {
+	wstring handle_command(wstring team, wstring channel, wstring user,
+		wstring command_text) override {
 		return command_text;
 	}
 };
@@ -274,7 +279,8 @@ public:
 		const std::wstring &outgoing_hook_token);
 	~MattermostWebhooks();
 	void post_message(const std::wstring &message);
-	void register_message_handler(const std::function<std::wstring(const Message&)> &message_handler);
+	void register_message_handler(const std::function<std::wstring(const Message&)>
+		&message_handler);
 	void register_web_handler(const std::function<WebResponse()> &web_handler);
 	void listen();
 	void die();
