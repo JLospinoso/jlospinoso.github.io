@@ -94,6 +94,12 @@ Also take note of the token that gets created for your outgoing webhook, e.g.:
 Token: omy7rqidk3dqdqky39yssm4bao
 ```
 
+Configure your firewall!
+==
+Your bot is going to need to listen to port 80. Configure your firewall to allow this.
+If you are just running Mattermost in a docker container, you *may* be able to get away
+with default firewall rules.
+
 Building an example bot
 ==
 Pull down matterbot from [github][1]:
