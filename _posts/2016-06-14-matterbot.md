@@ -43,8 +43,7 @@ You can see your docker container's status with `docker ps`:
 
 ```
 $ docker ps
-CONTAINER ID        IMAGE                           COMMAND                  CREATED             
-
+CONTAINER ID        IMAGE                           COMMAND                  CREATED
 f25bbb6897ca        mattermost/mattermost-preview   "/bin/sh -c ./docker-"   3 minutes ago
      STATUS              PORTS                              NAMES
      Up 3 minutes        3306/tcp, 0.0.0.0:8065->8065/tcp   mattermost-preview
