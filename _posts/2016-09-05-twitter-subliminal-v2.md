@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Twitter Subliminal 0.2.0
-image: /images/retweet.jpg
+image: /images/docker-twitter-subliminal.jpg
 date: 2016-09-05 12:00
 tag: Twitter Subliminal Now Dockerized
 categories: [subliminal-channel, twitter, poco, cryptography, c++, developing, software]
@@ -10,6 +10,7 @@ categories: [subliminal-channel, twitter, poco, cryptography, c++, developing, s
 [2]: https://docker.com
 [3]: https://apps.twitter.com/
 [4]: https://jlospinoso.github.io/subliminal-channel/twitter/poco/cryptography/c++/developing/software/2016/02/06/twitter-subliminal.html
+[5]: https://github.com/JLospinoso/twitter-subliminal/issues
 
 Getting [twitter-subliminal][1] setup can be a pain, especially in non-Linux
 environments. [Docker][2] is a great solution for making software portable, and
@@ -54,4 +55,4 @@ There are two locations where the twitter-subliminal containers are published:
 
 Feedback
 ==
-Please [post any issues or bugs][14] you find!
+Please [post any issues or bugs][5] you find!
