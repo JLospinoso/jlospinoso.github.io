@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Twitter Subliminal 0.2.0
-image: /images/docker-twitter-subliminal.jpg
+image: /images/TwitterSubliminal.png
 date: 2016-09-05 12:00
 tag: Twitter Subliminal Now Dockerized
 categories: [subliminal-channel, twitter, poco, cryptography, c++, developing, software]
