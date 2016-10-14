@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Matterbot
+title: Setting Up a Matterbot with Slack via ngrok
 image: /images/chatbot.jpg
 date: 2016-06-14 21:00
 tag: A C++ Framework for Creating Simple Mattermost/Slack Bots
