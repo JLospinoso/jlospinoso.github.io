@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Matterbot
+title: Setting Up a Matterbot with Slack via ngrok
 image: /images/slackbot.jpg
 date: 2016-10-14 12:00
 tag: Running a Matterbot on Slack with ngrok
