@@ -3,7 +3,7 @@ layout: post
 title: Defeating the USB Rubber Ducky with Beamgun
 image: /images/beamgun.png
 date: 2016-11-15 12:00
-tag: Introducing Beamgun, a lightweight Windows security program
+tag: Introducing Beamgun, a lightweight USB Rubber Ducky defeat for Windows
 categories: [infosec, usb rubber ducky, c#, CLR, WPF, .NET, security]
 ---
 [1]: https://github.com/JLospinoso/beamgun
