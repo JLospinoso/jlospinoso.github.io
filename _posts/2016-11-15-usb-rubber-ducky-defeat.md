@@ -8,12 +8,12 @@ categories: [infosec, usb rubber ducky, c#, CLR, WPF, .NET, security]
 ---
 [1]: https://github.com/JLospinoso/beamgun
 [2]: https://github.com/JLospinoso/beamgun/issues
-[3]: http://usbrubberducky.com/#!index.md
+[3]: https://usbrubberducky.com/#!index.md
 [4]: https://hak5.org
-[5]: http://www.usanetwork.com/mrrobot
+[5]: https://www.usanetwork.com/mrrobot
 [6]: https://msdn.microsoft.com/en-us/library/windows/desktop/aa363431(v=vs.85).aspx
 [7]: https://msdn.microsoft.com/en-us/library/windows/desktop/ms644990(v=vs.85).aspx
-[8]: http://resources.infosecinstitute.com/keyloggers-how-they-work-and-more/
+[8]: https://resources.infosecinstitute.com/keyloggers-how-they-work-and-more/
 [9]: https://msdn.microsoft.com/en-us/library/mt149843(v=vs.110).aspx
 [10]: https://en.wikipedia.org/wiki/Local_Security_Authority_Subsystem_Service
 [11]: https://msdn.microsoft.com/en-us/library/windows/desktop/aa376875(v=vs.85).aspx
@@ -22,7 +22,7 @@ The [USB Rubber Ducky][3] is an awesome little piece of infosec goodness put tog
 [HAK5][4]. Ever since it was popularized on [Mr. Robot][5], I've wanted to write some software to mitigate the
 vulnerability:
 
-[![15 Second Password Hack, Mr. Robot Style](http://img.youtube.com/vi/4kX90HzA0FM/0.jpg)](https://www.youtube.com/watch?v=4kX90HzA0FM "15 Second Password Hack, Mr. Robot Style")
+[![15 Second Password Hack, Mr. Robot Style](https://img.youtube.com/vi/4kX90HzA0FM/0.jpg)](https://www.youtube.com/watch?v=4kX90HzA0FM "15 Second Password Hack, Mr. Robot Style")
 
 Basically, this little USB device registers itself as a keyboard, waits a bit, then
 blasts the victim's computer with a flurry of keystrokes at super-human speed. This requires an
@@ -34,11 +34,11 @@ you'd like, pull larger scripts down from a remote server, or worse.
 
 What, you ask, can men do against such reckless hate?
 
-[![Reckless](http://img.youtube.com/vi/t6qQSll7InQ/0.jpg)](https://www.youtube.com/watch?v=t6qQSll7InQ "Reckless")
+[![Reckless](https://img.youtube.com/vi/t6qQSll7InQ/0.jpg)](https://www.youtube.com/watch?v=t6qQSll7InQ "Reckless")
 
 Install Beamgun!
 
-![Beamgun Infographic](/images/beamgun-readme.png)
+![Beamgun Infographic](https://s3.amazonaws.com/net.lospi.beamgun/beamgun-readme.png)
 
 You can download and install Beamgun using the simple instructions [on Github][1].
 
@@ -55,7 +55,7 @@ From here, you can disable Beamgun, e.g. if you are about to insert and remove U
 You can also configure the security settings for Beamgun using the two check boxes.
 I recommend checking both boxes to get the benefits of both mitigations. Whenever
 beamgun detects a USB device, it will only execute the mitigations you have checked.
-If you check "Attempt to steal", Beamgun will attemt to steal all of the keystrokes and sink them harmlessly into its window.
+If you check "Attempt to steal", Beamgun will attempt to steal all of the keystrokes and sink them harmlessly into its window.
 If you check "Lock workstation", Beamgun will tell Windows to lock, forcing
 you to type your password in to continue.
 
