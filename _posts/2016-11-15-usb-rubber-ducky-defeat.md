@@ -8,7 +8,7 @@ categories: [infosec, usb rubber ducky, c#, CLR, WPF, .NET, security]
 ---
 [1]: https://github.com/JLospinoso/beamgun
 [2]: https://github.com/JLospinoso/beamgun/issues
-[3]: https://usbrubberducky.com/#!index.md
+[3]: http://usbrubberducky.com/#!index.md
 [4]: https://hak5.org
 [5]: https://www.usanetwork.com/mrrobot
 [6]: https://msdn.microsoft.com/en-us/library/windows/desktop/aa363431(v=vs.85).aspx
