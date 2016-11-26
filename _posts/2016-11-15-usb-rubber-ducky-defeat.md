@@ -38,7 +38,7 @@ What, you ask, can men do against such reckless hate?
 
 Install Beamgun!
 
-![Beamgun Infographic](https://raw.githubusercontent.com/JLospinoso/beamgun/master/beamgun-readme.png)
+![Beamgun Infographic](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/beamgun-readme.png)
 
 You can download and install Beamgun using the simple instructions [on Github][1].
 
