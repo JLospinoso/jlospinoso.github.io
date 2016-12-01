@@ -58,7 +58,8 @@ I replaced the Win32-API-based `RegisterDeviceNotification` approach with [Windo
 Instrumentation][14] approach. We first construct a `WqlEventQuery`:
 
 ```cs
-var keyboardQuery = new WqlEventQuery("__InstanceCreationEvent", new TimeSpan(0, 0, 1), "TargetInstance isa \"Win32_Keyboard\"");
+var keyboardQuery = new WqlEventQuery("__InstanceCreationEvent", new TimeSpan(0, 0, 1),
+  "TargetInstance isa \"Win32_Keyboard\"");
 ```
 
 and then we pass this query to a `ManagementEventWatcher`:
@@ -78,7 +79,8 @@ Registering for new network adapters (as in ALL network adapters, not just USB!)
 [WQL][15] to our new target:
 
 ```cs
-var networkQuery = new WqlEventQuery("__InstanceCreationEvent", new TimeSpan(0, 0, 1), "TargetInstance isa \"Win32_NetworkAdapter\"");
+var networkQuery = new WqlEventQuery("__InstanceCreationEvent", new TimeSpan(0, 0, 1),
+  "TargetInstance isa \"Win32_NetworkAdapter\"");
 ```
 
 The new challenger here is that just locking the workstation is no longer a sufficient mitigation. With rogue
