@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Defeating PoisonTaps, LAN Turtles, and Other Rogue USB Network Adapters with Beamgun
+title: Defeating PoisonTaps, LAN Turtles, & Rogue Network Adapters with Beamgun
 image: /images/lanturtle.png
 date: 2016-11-30 20:00
 tag: New and improved Beamgun now defends against USB network adapters and mass storage!
