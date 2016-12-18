@@ -1,7 +1,7 @@
 ---
 layout: post
 title: dailyc - A Batch Multimedia Message Service
-image: /images/dailyc.jpg
+image: /images/dailyc.svg
 date: 2015-09-14 16:00
 tag: Send multimedia messages using dailyc
 categories: [groovy, gorm, java, Spring Boot, Mogreet, software]

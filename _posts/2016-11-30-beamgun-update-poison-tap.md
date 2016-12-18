@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Defeating the USB Rubber Ducky with Beamgun
-image: /images/lanturtle.png
+image: /images/lanturtle.svg
 date: 2016-11-30 20:00
 tag: New and improved Beamgun now defends against USB network adapters and mass storage!
 categories: [infosec, usb rubber ducky, lan turtle, c#, CLR, WPF, .NET, security]

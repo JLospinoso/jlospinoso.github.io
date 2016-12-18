@@ -1,38 +1,24 @@
 ---
 layout: default
-title: lospi.net home
+title: Josh Lospinoso - Blog
 ---
-
-<!-- This loops through the paginated posts -->
-{% for post in paginator.posts %}
-<div id="post">
-  <span class="title">
-  <a href="{{site.url}}{{post.url}}">{{ post.title }}</a>
-  </span>
-  <span class="date">{{ post.date | date: "%B %-d, %Y" }}</span>
-  {% if post.image %}
-  <img width="600px" src="{{ site.url }}{{ post.image }}" class="image">
-  {% endif %}
-  {% if post.tag %}
-  <div class="tag">{{ post.tag }}</div>
-  {% endif %}
-  <div class="content">
-    {{ post.content }}
-  </div>
+<div class="jumbotron jumbotron-fluid">
+    <a href="{{site.url}}{{site.posts.first.url}}">
+        <p class="text-xs-center">LATEST ARTICLE</p>
+        <h4 class="text-xs-center">{{ site.posts.first.title }}</h4>
+        <p class="text-xs-center">{{ site.posts.first.date | date: "%B %-d, %Y" }}</p>
+        <img class="card-img-top img-fluid" src="{{ site.url }}{{ site.posts.first.image }}" class="image">
+    </a>
 </div>
-{% endfor %}
-
-<!-- Pagination links -->
-<div id="pagination">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path }}" class="previous">prev</a>
-  {% else %}
-    <span class="disabled">prev</span>
-  {% endif %}
-  <span class="page_number ">{{ paginator.page }} / {{ paginator.total_pages }}</span>
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path }}" class="next">next</a>
-  {% else %}
-    <span class="disabled">next</span>
-  {% endif %}
+<div class="card-columns">
+    {% for post in site.posts %}
+    <div class="card card-outline-primary">
+        <img class="card-img-top img-fluid" src="{{ site.url }}{{ post.image }}" class="image">
+        <div class="card-block">
+            <h4 class="card-title text-xs-center"><a href="{{site.url}}{{post.url}}">{{ post.title }}</a></h4>
+            <p class="card-text text-xs-center">{{ post.date | date: "%B %-d, %Y" }}</p>
+            <p class="card-text">{{ post.tag }}</p>
+        </div>
+    </div>
+    {% endfor %}
 </div>

@@ -1,73 +1,80 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
-   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>{{ page.title }}</title>
-   <meta name="author" content="Josh Lospinoso" />
-   <link href="https://feeds.feedburner.com/jalospinoso" rel="alternate" title="Josh Lospinoso" type="application/atom+xml" />
-
-   <!-- syntax highlighting CSS -->
-   <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
-
-   <!-- Homepage CSS -->
-   <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
-   
-   <!-- ShareThis -->
-	<script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
-	<script type="text/javascript">stLight.options({publisher: "f90ebad0-982c-402b-99de-4167a825e0ab", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="The Blog of Josh Lospinoso">
+    <meta name="author" content="Josh Lospinoso">
+    <link rel="icon" href="/favicon.ico">
+    <title>{{ page.title }}</title>
+    <link href="https://feeds.feedburner.com/jalospinoso" rel="alternate" title="Josh Lospinoso" type="application/atom+xml" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
 </head>
 <body>
 
-<div class="site">
-  <div class="title">
-    <a href="/">Josh Lospinoso</a>
-    <a class="extra" href="/">home</a>
-    <a class="extra" href="/posts.html">posts</a>
-    <a class="extra" href="https://www.linkedin.com/in/jalospinoso" target="_blank">about</a>
-  </div>
-  {{ content }}
-  
-  <div class="footer">
-    <div class="contact">
-      <p>
-        Josh Lospinoso<br />
-        josh@lospi.net
-      </p>
+<nav class="navbar">
+    <div class="container">
+        <a class="navbar-brand" href="https://keybase.io/jlospinoso" target="_blank">Josh Lospinoso</a>
+        <ul class="nav navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="/">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="/scholarly.html">Scholarly Works</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/jalospinoso" target="_blank">About</a></li>
+        </ul>
     </div>
-    <div class="contact">
-      <p>
-        <a href="https://www.linkedin.com/in/jalospinoso">LinkedIn</a> | <a href="https://twitter.com/jalospinoso">Twitter</a><br />
-		<a href="https://github.com/JLospinoso">GitHub</a> | <a href="https://stackoverflow.com/users/339555/jalospinoso">StackOverflow</a>
-      </p>
-    </div>
-	<div class="share">
+</nav>
 
-	</div>
-    <div class="rss">
-		<span class='st_facebook_hcount' displayText='Facebook'></span>
-		<span class='st_twitter_hcount' displayText='Tweet'></span>
-		<span class='st_linkedin_hcount' displayText='LinkedIn'></span>
-		<a href="https://feeds.feedburner.com/jalospinoso">
-			<img src="/images/rss.png" alt="Subscribe to RSS Feed" />
-		</a>
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-right">
+        <div  class="col-xs-12 col-sm-9">
+            {{ content }}
+        </div>
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- right-view -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:600px"
+                 data-ad-client="ca-pub-7354863263385271"
+                 data-ad-slot="6229397902"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
     </div>
-  </div>
+    <hr>
+    <footer>
+        <div class="row">
+            <div class="col-xs-4 text-xl-left">
+                Josh Lospinoso &copy; 2016
+            </div>
+            <div class="col-xs-4 text-xs-center">
+                <a href="https://www.linkedin.com/in/jalospinoso">LinkedIn</a> <a href="https://twitter.com/jalospinoso">Twitter</a> <a href="https://github.com/JLospinoso">Github</a> <a href="https://stackoverflow.com/users/339555/jalospinoso">StackOverflow</a>
+            </div>
+            <div class="col-xs-4 text-xs-right">
+                <a href="https://feeds.feedburner.com/jalospinoso" target="_blank"><img src="/images/rss.png" alt="Subscribe to RSS Feed" /></a>
+            </div>
+        </div>
+  </footer>
 </div>
 
-<a href="https://github.com/JLospinoso"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a>
-
+<script src="/js/jquery.min.js"></script>
+<script src="/js/tether.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/ie10-viewport-bug-workaround.js"></script>
+<script src="/js/offcanvas.js"></script>
 <!-- Google Analytics -->
-            <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-25952771-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
-<!-- Google Analytics end -->
-
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+  var pageTracker = _gat._getTracker("UA-25952771-1");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
 </body>
 </html>
