@@ -205,7 +205,7 @@ to navigate to an `Instructions` tab where you'll see the instructions contained
   > bots to trigger!*). Next is the word "challenges", which you may use in a Slack bot to trigger a command. The remainder of
   > the string is a series of hashes delimited by spaces. The preimage will
   > end with your password, and a random number of salt digits are prepended. The valid alphabet for this salt is
-  > the following string: *hosj*.
+  > the following string: *hark*.
   >
   > Once you have found the preimage for one of your challenges, simply tell rivestment by using the try
   > command, e.g.:
