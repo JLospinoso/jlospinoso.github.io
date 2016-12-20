@@ -113,7 +113,7 @@ services:
     - N_CHALLENGES=25
     - PASSWORD_SIZE=6
     - PASSWORD_RANGE=abcdefghijklmnopqrstuvwxyz0123456789
-    - PREIMAGE_RANGE=hosj
+    - PREIMAGE_RANGE=hark
     - SLACK_TOKEN=xoxb-118324377924-cFaZgiH5O2zz82L5wE3E4FS5
     - STARTING_SCORE=1000
 ```
