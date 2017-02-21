@@ -12,7 +12,7 @@ categories: [node, javascript, security, cryptography, privacy]
 
 [snuck.me][1] is a web service for querying an arbitrary site's SSL certificate. A user can compare the results of this query with the certificate that her browser is reporting to help determine of there is a man in the middle:
 
-[Infographic][3]
+![snuck.me Infographic](https://snuck.me/tutorial.svg)
 
 # How it works
 
@@ -104,23 +104,23 @@ We'll wrap this post up with an example where we inspect Google's certificate wi
 
 * Click the lock:
 
-![Example 1](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/snuckme/img02.PNG)
+![Example 2](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/snuckme/img02.PNG)
 
 * Click the right arrow to see additional information about the certificate:
 
-![Example 1](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/snuckme/img03.PNG)
+![Example 3](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/snuckme/img03.PNG)
 
 * Click "More Information":
 
-![Example 1](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/snuckme/img04.PNG)
+![Example 4](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/snuckme/img04.PNG)
 
 * Click on the security tab, then "View Certificate":
 
-![Example 1](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/snuckme/img05.PNG)
+![Example 5](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/snuckme/img05.PNG)
 
 * Keep this open. Now visit  [snuck.me][1] and query `www.google.com`:
 
-![Example 1](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/snuckme/img06.PNG)
+![Example 6](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/snuckme/img06.PNG)
 
 Compare the SHA1 Fingerprints of the results! If there's a mismatch, you've probably got a man in the middle.
 
