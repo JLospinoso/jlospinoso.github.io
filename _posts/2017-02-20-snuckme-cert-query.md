@@ -1,6 +1,6 @@
 ---
 layout: post
-title: snuck.me, a service detecting SSL man-in-the-middle
+title: snuck.me, an open-source service detecting SSL man-in-the-middle
 image: /images/snuckme.svg
 date: 2017-02-20 12:00
 tag: snuck.me allows users to compare legitimate SSL certs with whatever their browser is getting.
@@ -10,7 +10,7 @@ categories: [node, javascript, security, cryptography, privacy]
 [2]: https://www.google.com
 [3]: https://snuck.me/tutorial.svg
 
-[snuck.me][1] is a web service for querying an arbitrary site's SSL certificate. A user can compare the results of this query with the certificate that her browser is reporting to help determine of there is a man in the middle:
+[snuck.me][1] is an open-source web service for querying an arbitrary site's SSL certificate. A user can compare the results of this query with the certificate that her browser is reporting to help determine of there is a man in the middle:
 
 ![snuck.me Infographic](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/snuckme_infographic.png)
 
@@ -32,7 +32,7 @@ HQIDAQAB
 -----END PUBLIC KEY-----`);
 ```
 
-When the user wants to check a certificate, she generates a JSON payload to send to the [snuck.me][1] service. This payload contains the URL corresponding to the certificate that the user wants to retrieve, and a random 20 character password:
+When the user wants to check a certificate, she generates a JSON payload to send to the [snuck.me][1] server. This payload contains the URL corresponding to the certificate that the user wants to retrieve, and a random 20 character password:
 
 ```js
 const alphabet = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -84,6 +84,66 @@ $.ajax({url: url,
         // Report issues to the user.
     }
 });
+```
+
+# Server side
+
+You can set up your own `snuck.me` server very easily. Here's a template for a `node.js` application:
+
+```js
+"use strict";
+
+const express = require("express");
+const app = express();
+const NodeRSA = require("node-rsa");
+const sslCertificate = require('get-ssl-certificate');
+const AES = require("crypto-js/aes");
+const cors = require('cors');
+
+const corsOptions = {
+    origin: 'https://your.domain.here'
+};
+
+const rsa = new NodeRSA(`-----BEGIN RSA PRIVATE KEY-----
+***
+YOUR_PRIVATE_KEY_HERE
+***
+-----END RSA PRIVATE KEY-----`, {
+    encryptionScheme: 'pkcs1'
+});
+
+app.get('/in/:opt', cors(corsOptions), function(req, res){
+    try {
+        const optionsJsonEncryptedEncoded = req.params.opt.replace(/\_/g, "/").replace(/\-/g, "+");
+        const optionsJsonEncoded = rsa.decrypt(optionsJsonEncryptedEncoded, 'base64');
+        const optionsJson = new Buffer(optionsJsonEncoded, 'base64').toString();
+        const options = JSON.parse(optionsJson);
+        const remoteUrl = options.url;
+        const password = options.password;
+        if(!password || !remoteUrl) {
+            throw new Error("Bad input");
+        }
+        sslCertificate.get(remoteUrl)
+                .then(function(certificate) {
+                certificate.success = true;
+                certificate.message = `Found certificate for ${remoteUrl}`;
+                const plaintext = JSON.stringify(certificate);
+                const ciphertext = AES.encrypt(plaintext, password).toString();
+                res.status(200).send(ciphertext);
+            }).catch(function(reason){
+                const plaintext = JSON.stringify({
+                    success: false,
+                    message: `Unable to find certificate for ${remoteUrl}`
+                });
+                const ciphertext = AES.encrypt(plaintext, password).toString();
+                res.status(200).send(ciphertext);
+            });
+    } catch (ex) {
+        res.status(400).send();
+    }
+});
+
+app.listen(8000);
 ```
 
 # Why does this work?
