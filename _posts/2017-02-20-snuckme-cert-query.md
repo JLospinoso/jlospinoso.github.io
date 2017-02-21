@@ -146,6 +146,15 @@ app.get('/in/:opt', cors(corsOptions), function(req, res){
 app.listen(8000);
 ```
 
+You'll obviously want to copy the source from [snuck.me][1] and change `urlPrefix` to point to your server's `/in/` route:
+
+```js
+const urlPrefix = "https://my.domain.here/in/"
+const url = urlPrefix + encryptedEncodedOptions;
+```
+
+Then serve the [snuck.me][1] html from some route!
+
 # Why does this work?
 
 This technique works because the man in the middle cannot modify your query. It is encrypted with [snuck.me][1]'s public key, and only [snuck.me][1] can decrypt it. Since the man in the middle cannot know the password you provided in your query, it cannot return bogus results to you by encrypting a spoofed response.
