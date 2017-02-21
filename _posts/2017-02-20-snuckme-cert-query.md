@@ -195,4 +195,4 @@ Compare the SHA1 Fingerprints of the results! If there's a mismatch, you've prob
 
 # Feedback
 
-Please email me (sneakme at lospi dot net) with any bugs!
+Please email me (snuckme at lospi dot net) with any bugs!
