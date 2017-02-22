@@ -1,6 +1,6 @@
 ---
 layout: post
-title: snuck.me, a service detecting SSL man-in-the-middle
+title: snuck.me, an open-source service detecting SSL man-in-the-middle
 image: /images/snuckme.svg
 date: 2017-02-20 12:00
 tag: snuck.me allows users to compare legitimate SSL certs with whatever their browser is getting.
@@ -8,8 +8,9 @@ categories: [node, javascript, security, cryptography, privacy]
 ---
 [1]: https://snuck.me
 [2]: https://www.google.com
+[3]: https://snuck.me/tutorial.svg
 
-[snuck.me][1] is a web service for querying an arbitrary site's SSL certificate. A user can compare the results of this query with the certificate that her browser is reporting to help determine of there is a man in the middle:
+[snuck.me][1] is an open-source web service for querying an arbitrary site's SSL certificate. A user can compare the results of this query with the certificate that her browser is reporting to help determine of there is a man in the middle:
 
 ![snuck.me Infographic](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/snuckme_infographic.png)
 
@@ -31,7 +32,7 @@ HQIDAQAB
 -----END PUBLIC KEY-----`);
 ```
 
-When the user wants to check a certificate, she generates a JSON payload to send to the [snuck.me][1] service. This payload contains the URL corresponding to the certificate that the user wants to retrieve, and a random 20 character password:
+When the user wants to check a certificate, she generates a JSON payload to send to the [snuck.me][1] server. This payload contains the URL corresponding to the certificate that the user wants to retrieve, and a random 20 character password:
 
 ```js
 const alphabet = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -85,6 +86,75 @@ $.ajax({url: url,
 });
 ```
 
+# Server side
+
+You can set up your own `snuck.me` server very easily. Here's a template for a `node.js` application:
+
+```js
+"use strict";
+
+const express = require("express");
+const app = express();
+const NodeRSA = require("node-rsa");
+const sslCertificate = require('get-ssl-certificate');
+const AES = require("crypto-js/aes");
+const cors = require('cors');
+
+const corsOptions = {
+    origin: 'https://your.domain.here'
+};
+
+const rsa = new NodeRSA(`-----BEGIN RSA PRIVATE KEY-----
+***
+YOUR_PRIVATE_KEY_HERE
+***
+-----END RSA PRIVATE KEY-----`, {
+    encryptionScheme: 'pkcs1'
+});
+
+app.get('/in/:opt', cors(corsOptions), function(req, res){
+    try {
+        const optionsJsonEncryptedEncoded = req.params.opt.replace(/\_/g, "/").replace(/\-/g, "+");
+        const optionsJsonEncoded = rsa.decrypt(optionsJsonEncryptedEncoded, 'base64');
+        const optionsJson = new Buffer(optionsJsonEncoded, 'base64').toString();
+        const options = JSON.parse(optionsJson);
+        const remoteUrl = options.url;
+        const password = options.password;
+        if(!password || !remoteUrl) {
+            throw new Error("Bad input");
+        }
+        sslCertificate.get(remoteUrl)
+                .then(function(certificate) {
+                certificate.success = true;
+                certificate.message = `Found certificate for ${remoteUrl}`;
+                const plaintext = JSON.stringify(certificate);
+                const ciphertext = AES.encrypt(plaintext, password).toString();
+                res.status(200).send(ciphertext);
+            }).catch(function(reason){
+                const plaintext = JSON.stringify({
+                    success: false,
+                    message: `Unable to find certificate for ${remoteUrl}`
+                });
+                const ciphertext = AES.encrypt(plaintext, password).toString();
+                res.status(200).send(ciphertext);
+            });
+    } catch (ex) {
+        res.status(400).send();
+    }
+});
+
+app.listen(8000);
+```
+
+You'll obviously want to copy the source from [snuck.me][1] and change `urlPrefix` to point to your server's `/in/` route:
+
+```js
+const urlPrefix = "https://my.domain.here/in/"
+const url = urlPrefix + encryptedEncodedOptions;
+```
+
+Then serve the [snuck.me][1] html from some route!
+
 # Why does this work?
 
 This technique works because the man in the middle cannot modify your query. It is encrypted with [snuck.me][1]'s public key, and only [snuck.me][1] can decrypt it. Since the man in the middle cannot know the password you provided in your query, it cannot return bogus results to you by encrypting a spoofed response.
@@ -103,26 +173,26 @@ We'll wrap this post up with an example where we inspect Google's certificate wi
 
 * Click the lock:
 
-![Example 1](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/snuckme/img02.PNG)
+![Example 2](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/snuckme/img02.PNG)
 
 * Click the right arrow to see additional information about the certificate:
 
-![Example 1](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/snuckme/img03.PNG)
+![Example 3](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/snuckme/img03.PNG)
 
 * Click "More Information":
 
-![Example 1](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/snuckme/img04.PNG)
+![Example 4](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/snuckme/img04.PNG)
 
 * Click on the security tab, then "View Certificate":
 
-![Example 1](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/snuckme/img05.PNG)
+![Example 5](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/snuckme/img05.PNG)
 
 * Keep this open. Now visit  [snuck.me][1] and query `www.google.com`:
 
-![Example 1](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/snuckme/img06.PNG)
+![Example 6](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/snuckme/img06.PNG)
 
 Compare the SHA1 Fingerprints of the results! If there's a mismatch, you've probably got a man in the middle.
 
 # Feedback
 
-Please email me (sneakme at lospi dot net) with any bugs!
+Please email me (snuckme at lospi dot net) with any bugs!
