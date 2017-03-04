@@ -33,7 +33,7 @@ categories: [security, assembly, c, cpp, developing, software]
 [25]: https://cseweb.ucsd.edu/~hovav/dist/rop.pdf
 [26]: https://github.com/sashs/Ropper
 
-[gargoyle][1] is a technique for hiding _all_ of a program's executable code in non-executable memory. At some programmer-defined interval, gargoyle will wake up--with some ROP trickery--mark itself executable and do some work:
+[gargoyle][1] is a technique for hiding _all_ of a program's executable code in non-executable memory. At some programmer-defined interval, gargoyle will wake up--and with some ROP trickery--mark itself executable and do some work:
 
 ![gargoyle Infographic](https://raw.githubusercontent.com/JLospinoso/gargoyle/master/infographic_web.png)
 
