@@ -351,5 +351,10 @@ Open `Gargoyle.sln` and build.
 
 You must run gargoyle.exe in the same directory as `setup.pic`. By default, this is in `Debug` or `Release`, the output directories of the solution.
 
+
+Every 15 seconds, gargoyle will pop up a message box. When you click ok, gargoyle completes with the `VirtualProtectEx`/`WaitForSingleObjectEx` tail call.
+
+For fun, use [Sysinternals's excellent VMMap tool](https://technet.microsoft.com/en-us/sysinternals/vmmap.aspx) to examine when *gargoyle*'s PIC is executable. If a message box is active, *gargoyle* will be executable. If it is not, *gargoyle* should not be executable. The PIC's address is printed to `stdout` just before the harness calls into the PIC.
+
 # Feedback
 Please [post any issues or bugs][22] you find!
