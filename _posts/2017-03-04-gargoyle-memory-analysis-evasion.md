@@ -32,6 +32,7 @@ categories: [security, assembly, c, cpp, developing, software]
 [24]: https://msdn.microsoft.com/en-us/library/windows/desktop/aa363772(v=vs.85).aspx
 [25]: https://cseweb.ucsd.edu/~hovav/dist/rop.pdf
 [26]: https://github.com/sashs/Ropper
+[27]: https://github.com/sashs
 
 [gargoyle][1] is a technique for hiding _all_ of a program's executable code in non-executable memory. At some programmer-defined interval, gargoyle will wake up--and with some ROP trickery--mark itself executable and do some work:
 
@@ -141,7 +142,7 @@ pop esp
 ret
 ```
 
-_Note: Thanks to @sash's excellent [Ropper][26] tool._
+_Note: Thanks to [Sascha Schirra's][27] excellent [Ropper][26] tool._
 
 This gadget will set `esp` equal to whatever value we put into `lpArgToCompletionRoutine` when we called `SetWaitableTimer`. All that's left to do now is have `lpArgToCompletionRoutine` point to some carefully crafted memory that looks like a stack. This _stack trampoline_ looks like this:
 
