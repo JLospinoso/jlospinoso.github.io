@@ -35,7 +35,7 @@ categories: [security, assembly, c, cpp, developing, software]
 
 [gargoyle][1] is a technique for hiding _all_ of a program's executable code in non-executable memory. At some programmer-defined interval, gargoyle will wake up--with some ROP trickery--mark itself executable and do some work:
 
-![gargoyle Infographic](https://raw.githubusercontent.com/JLospinoso/gargoyle/master/infographic.png)
+![gargoyle Infographic](https://raw.githubusercontent.com/JLospinoso/gargoyle/master/infographic_web.png)
 
 The technique is demonstrated for 32-bit Windows [here][1]. In this post, we'll dig through all the gritty details of how it's implemented.
 
