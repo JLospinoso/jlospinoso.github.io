@@ -10,7 +10,7 @@ categories: [node, javascript, security, cryptography, privacy]
 [2]: https://www.google.com
 [3]: https://snuck.me/tutorial.svg
 
-[snuck.me][1] is an open-source web service for querying an arbitrary site's SSL certificate. A user can compare the results of this query with the certificate that her browser is reporting to help determine of there is a man in the middle:
+[snuck.me][1] is an open-source web service for querying an arbitrary site's SSL certificate. A user can compare the results of this query with the certificate that her browser is reporting to help determine if there is a man in the middle:
 
 ![snuck.me Infographic](https://github.com/JLospinoso/jlospinoso.github.io/raw/master/images/snuckme_infographic.png)
 
@@ -195,4 +195,4 @@ Compare the SHA1 Fingerprints of the results! If there's a mismatch, you've prob
 
 # Feedback
 
-Please email me (sneakme at lospi dot net) with any bugs!
+Please email me (snuckme at lospi dot net) with any bugs!
