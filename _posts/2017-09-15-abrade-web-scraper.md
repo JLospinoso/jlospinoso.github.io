@@ -39,7 +39,7 @@ categories: [cpp, developing, software]
 
 [Abrade][1] is an open-source, command-line tool for collecting web-resources from URLs containing sequential, alpha-numerical IDs. It uses asynchronous network I/O to minimize CPU utilization while maximizing throughput. Abrade has support for TLS/SSL and SOCKS 5 proxies (e.g. TOR), and Abrade works on operating systems where [OpenSSL][2] and [Boost Libraries installed][3] are available (including all major, modern OSs). It's also available as a [Docker][6] container.
 
-_Disclaimer: Make sure that you are not running afoul of applicable laws and regulations and that you obtain permission where necessary when accessing web resources. All of the examples in this post use https://httpbin.org or https://ipify.org which, as of the time of writing, complies with thoes sites' terms of use. Any discussion or mention of other URL patterns is not an endorsement by the author for the use of Abrade to scrape such URLs._
+_Disclaimer: Make sure that you are not running afoul of applicable laws and regulations and that you obtain permission where necessary when accessing web resources. All of the examples in this post use https://httpbin.org or https://ipify.org which, as of the time of writing, complies with those sites' terms of use. Any discussion or mention of other URL patterns is not an endorsement by the author for the use of Abrade to scrape such URLs._
 
 Abrade is really good at probing web APIs like the *Ring Video Doorbell's Shared Videos*. With a one-liner, you could theoretically scrape such an API:
 
