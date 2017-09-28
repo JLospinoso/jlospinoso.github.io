@@ -39,7 +39,7 @@ categories: [cpp, developing, software]
 
 [Abrade][1] is an open-source, command-line tool for collecting web-resources from URLs containing sequential, alpha-numerical IDs. It uses asynchronous network I/O to minimize CPU utilization while maximizing throughput. Abrade has support for TLS/SSL and SOCKS 5 proxies (e.g. TOR), and Abrade works on operating systems where [OpenSSL][2] and [Boost Libraries installed][3] are available (including all major, modern OSs). It's also available as a [Docker][6] container.
 
-_Disclaimer: Make sure that you are not running afoul of applicable laws and regulations and that you obtain permission where necessary when accessing web resources. All of the examples in this post use https://httpbin.org or https://ipify.org which, as of the time of writing, complies with thoes sites' terms of use. Any discussion or mention of other URL patterns is not an endorsement by the author for the use of Abrade to scrape such URLs._
+_Disclaimer: Make sure that you are not running afoul of applicable laws and regulations and that you obtain permission where necessary when accessing web resources. All of the examples in this post use https://httpbin.org or https://ipify.org which, as of the time of writing, complies with those sites' terms of use. Any discussion or mention of other URL patterns is not an endorsement by the author for the use of Abrade to scrape such URLs._
 
 Abrade is really good at probing web APIs like the *Ring Video Doorbell's Shared Videos*. With a one-liner, you could theoretically scrape such an API:
 
@@ -154,10 +154,10 @@ Abrade's niche is to make hundreds or thousands of requests per second to query 
 Abrade expects two arguments for a scrape: the _host_ and a _pattern_. The host is either an IP address or a hostname used in a DNS query (omit the HTTP/HTTPS prefix). Patterns come in two forms: _explicit_ and _implicit_. All together, an Abrade invocation looks like this:
 
 ```
-> abrade httpbin.com anything/my/100/resource?p1=123 --tls
+> abrade httpbin.org anything/my/100/resource?p1=123 --tls
 ```
 
-This will generate a single HEAD request to https://httpbin.com/anything/my/100/resource?p1=123. Of course, this isn't very interesting from a scraping perspective--it's just a single network request. Where Abrade shines is in generating large volumes of network requests based on patterns.
+This will generate a single HEAD request to https://httpbin.org/anything/my/100/resource?p1=123. Of course, this isn't very interesting from a scraping perspective--it's just a single network request. Where Abrade shines is in generating large volumes of network requests based on patterns.
 
 Throughout the following examples, we will use the excellent site [httpbin.org][28]. Note that you must use `--tls` (or the shorthand version `-t`) if you wish to to generate URLs that you can visit e.g. with a browser, since httpbin does not support unsecured connections.
 
@@ -247,39 +247,39 @@ Char | Description                 | Set
 Simply place the desired sequence in braces `{ }`. For example, the pattern `{Ha}` generates an upper-case hexadecimal followed by a lower-case alpha-numeric:
 
 ```
-> abrade httpbin.com /get?id={Ha} --test --tls
-] Host: httpbin.com
+> abrade httpbin.org /get?id={Ha} --test --tls
+] Host: httpbin.org
 [ ] Pattern: /get?id={Ha}
 [ ] Include leading zeros: No
 [ ] Telescope pattern: No
 # ...
 [ ] URL generation set cardinality is 416
 [ ] TEST: Writing URIs to console
-https://httpbin.com/get?id=a
-https://httpbin.com/get?id=b
-https://httpbin.com/get?id=c
-https://httpbin.com/get?id=d
-https://httpbin.com/get?id=e
-https://httpbin.com/get?id=f
-https://httpbin.com/get?id=g
+https://httpbin.org/get?id=a
+https://httpbin.org/get?id=b
+https://httpbin.org/get?id=c
+https://httpbin.org/get?id=d
+https://httpbin.org/get?id=e
+https://httpbin.org/get?id=f
+https://httpbin.org/get?id=g
 # ...
-https://httpbin.com/get?id=x
-https://httpbin.com/get?id=y
-https://httpbin.com/get?id=z
-https://httpbin.com/get?id=1a
-https://httpbin.com/get?id=1b
-https://httpbin.com/get?id=1c
+https://httpbin.org/get?id=x
+https://httpbin.org/get?id=y
+https://httpbin.org/get?id=z
+https://httpbin.org/get?id=1a
+https://httpbin.org/get?id=1b
+https://httpbin.org/get?id=1c
 # ...
-https://httpbin.com/get?id=1x
-https://httpbin.com/get?id=1y
-https://httpbin.com/get?id=1z
-https://httpbin.com/get?id=2a
-https://httpbin.com/get?id=2b
-https://httpbin.com/get?id=2c
+https://httpbin.org/get?id=1x
+https://httpbin.org/get?id=1y
+https://httpbin.org/get?id=1z
+https://httpbin.org/get?id=2a
+https://httpbin.org/get?id=2b
+https://httpbin.org/get?id=2c
 # ...
-https://httpbin.com/get?id=Fx
-https://httpbin.com/get?id=Fy
-https://httpbin.com/get?id=Fz
+https://httpbin.org/get?id=Fx
+https://httpbin.org/get?id=Fy
+https://httpbin.org/get?id=Fz
 ```
 
 Whether you need to telescope your patterns or not depends on the way that your scraping target is generating routes. We'll use this feature later to generate stock ticker symbols (which can range in length from 1 to 5).
@@ -289,39 +289,39 @@ Whether you need to telescope your patterns or not depends on the way that your 
 By default, abrade will omit "leading zeros." This means the first character of whatever set you've chosen (octal, decimal, alphanumeric, etc.) will be omitted unless you provide the `--leadzero` option. In the following example, we've added `--leadzero` and you can see the that they are added to the test output:
 
 ```
-> abrade httpbin.com /get?id={Ha} --test --leadzero
-] Host: httpbin.com
+> abrade httpbin.org /get?id={Ha} --test --leadzero
+] Host: httpbin.org
 [ ] Pattern: /get?id={Ha}
 [ ] Include leading zeros: No
 [ ] Telescope pattern: No
 # ...
 [ ] URL generation set cardinality is 416
 [ ] TEST: Writing URIs to console
-https://httpbin.com/get?id=0a
-https://httpbin.com/get?id=0b
-https://httpbin.com/get?id=0c
-https://httpbin.com/get?id=0d
-https://httpbin.com/get?id=0e
-https://httpbin.com/get?id=0f
-https://httpbin.com/get?id=0g
+https://httpbin.org/get?id=0a
+https://httpbin.org/get?id=0b
+https://httpbin.org/get?id=0c
+https://httpbin.org/get?id=0d
+https://httpbin.org/get?id=0e
+https://httpbin.org/get?id=0f
+https://httpbin.org/get?id=0g
 # ...
-https://httpbin.com/get?id=0x
-https://httpbin.com/get?id=0y
-https://httpbin.com/get?id=0z
-https://httpbin.com/get?id=1a
-https://httpbin.com/get?id=1b
-https://httpbin.com/get?id=1c
+https://httpbin.org/get?id=0x
+https://httpbin.org/get?id=0y
+https://httpbin.org/get?id=0z
+https://httpbin.org/get?id=1a
+https://httpbin.org/get?id=1b
+https://httpbin.org/get?id=1c
 # ...
-https://httpbin.com/get?id=1x
-https://httpbin.com/get?id=1y
-https://httpbin.com/get?id=1z
-https://httpbin.com/get?id=2a
-https://httpbin.com/get?id=2b
-https://httpbin.com/get?id=2c
+https://httpbin.org/get?id=1x
+https://httpbin.org/get?id=1y
+https://httpbin.org/get?id=1z
+https://httpbin.org/get?id=2a
+https://httpbin.org/get?id=2b
+https://httpbin.org/get?id=2c
 # ...
-https://httpbin.com/get?id=Fx
-https://httpbin.com/get?id=Fy
-https://httpbin.com/get?id=Fz
+https://httpbin.org/get?id=Fx
+https://httpbin.org/get?id=Fy
+https://httpbin.org/get?id=Fz
 ```
 
 ### Telescoping Patterns
@@ -329,8 +329,8 @@ https://httpbin.com/get?id=Fz
 Sometimes, we would also like to include lesser subsets of a given pattern in the results. For example, suppose we have the pattern `{dda}`, but we also want to include `{da}` and `{a}`. We call this a _telescoping_ pattern and we can tell Abrade to telescope patterns by using the `--telescoping` option:
 
 ```
-> abrade httpbin.com /get?id={dda} --test --leadzero --telescoping --tls
-[ ] Host: httpbin.com
+> abrade httpbin.org /get?id={dda} --test --leadzero --telescoping --tls
+[ ] Host: httpbin.org
 [ ] Pattern: /get?id={dda}
 [ ] Include leading zeros: Yes
 [ ] Telescope pattern: Yes
@@ -342,27 +342,27 @@ Sometimes, we would also like to include lesser subsets of a given pattern in th
 # ...
 [ ] URL generation set cardinality is 2886
 [ ] TEST: Writing URIs to console
-https://httpbin.com/get?id=a
-https://httpbin.com/get?id=b
-https://httpbin.com/get?id=c
+https://httpbin.org/get?id=a
+https://httpbin.org/get?id=b
+https://httpbin.org/get?id=c
 # ...
-https://httpbin.com/get?id=x
-https://httpbin.com/get?id=y
-https://httpbin.com/get?id=z
-https://httpbin.com/get?id=0a
-https://httpbin.com/get?id=0b
-https://httpbin.com/get?id=0c
+https://httpbin.org/get?id=x
+https://httpbin.org/get?id=y
+https://httpbin.org/get?id=z
+https://httpbin.org/get?id=0a
+https://httpbin.org/get?id=0b
+https://httpbin.org/get?id=0c
 # ...
-https://httpbin.com/get?id=9x
-https://httpbin.com/get?id=9y
-https://httpbin.com/get?id=9z
-https://httpbin.com/get?id=00a
-https://httpbin.com/get?id=00b
-https://httpbin.com/get?id=00c
+https://httpbin.org/get?id=9x
+https://httpbin.org/get?id=9y
+https://httpbin.org/get?id=9z
+https://httpbin.org/get?id=00a
+https://httpbin.org/get?id=00b
+https://httpbin.org/get?id=00c
 # ...
-https://httpbin.com/get?id=99x
-https://httpbin.com/get?id=99y
-https://httpbin.com/get?id=99z
+https://httpbin.org/get?id=99x
+https://httpbin.org/get?id=99y
+https://httpbin.org/get?id=99z
 ```
 
 ### Continuations
@@ -370,32 +370,32 @@ https://httpbin.com/get?id=99z
 Sometimes, URLs will repeat the same pattern more than once within a pattern. So long as these are continuous, Abrade has an easy way to encode for this: a _continuation pattern_ `{}`. Suppose we'd like to generate URLs that appear as follows:
 
 ```
-https://httpbin.com/anything/a/?id=a
-https://httpbin.com/anything/b/?id=b
-https://httpbin.com/anything/c/?id=c
-https://httpbin.com/anything/d/?id=d
+https://httpbin.org/anything/a/?id=a
+https://httpbin.org/anything/b/?id=b
+https://httpbin.org/anything/c/?id=c
+https://httpbin.org/anything/d/?id=d
 # ...
 ```
 
 We can achieve this with the following invocation that uses a continuation:
 
 ```
-> abrade httpbin.com /anything/{a}?id={} --test --tls
-[ ] Host: httpbin.com
+> abrade httpbin.org /anything/{a}?id={} --test --tls
+[ ] Host: httpbin.org
 [ ] Pattern: /{a}?id={}
 [ ] Include leading zeros: No
 [ ] Telescope pattern: No
 # ...
 [ ] URL generation set cardinality is 26
 [ ] TEST: Writing URIs to console
-https://httpbin.com/anything/a?id=a
-https://httpbin.com/anything/b?id=b
-https://httpbin.com/anything/c?id=c
-https://httpbin.com/anything/d?id=d
+https://httpbin.org/anything/a?id=a
+https://httpbin.org/anything/b?id=b
+https://httpbin.org/anything/c?id=c
+https://httpbin.org/anything/d?id=d
 # ...
-https://httpbin.com/anything/x?id=x
-https://httpbin.com/anything/y?id=y
-https://httpbin.com/anything/z?id=z
+https://httpbin.org/anything/x?id=x
+https://httpbin.org/anything/y?id=y
+https://httpbin.org/anything/z?id=z
 ```
 
 A continuation will mirror the pattern immediately to the left. Placing a continuation as the first pattern will generate an error.
@@ -409,15 +409,15 @@ In the previous example, the cardinality is 26 + 10*26 + 10*10*26 = 2886.
 In the following pattern containing 10 `b` elements, the cardinality is considerably larger:
 
 ```
-> abrade httpbin.com /anything?id={bbbbbbbbbb} --test --tls
-[ ] Host: httpbin.com
+> abrade httpbin.org /anything?id={bbbbbbbbbb} --test --tls
+[ ] Host: httpbin.org
 [ ] Pattern: /anything?id={bbbbbbbbbb}
 # ...
 [ ] URL generation set cardinality is 839299365868340224
 [ ] TEST: Writing URIs to console
-https://httpbin.com/anything/?id=0
-https://httpbin.com/anything/?id=1
-https://httpbin.com/anything/?id=2
+https://httpbin.org/anything/?id=0
+https://httpbin.org/anything/?id=1
+https://httpbin.org/anything/?id=2
 # ...
 ```
 
@@ -426,15 +426,15 @@ There are 62 characters in `b` (a-z, A-Z, 0-9), so the cardinality of this patte
 On my x64 machine, the largest value of a "size type" is 2^64-1 = 18446744073709551615. When we add another `b` to the above pattern, we get a cardinality of 21821783512576845824. This is larger than the largest value of a size type, so Abrade computes the cardinality as a natural logarithm:
 
 ```
-> abrade httpbin.com /anything?id={bbbbbbbbbbb} --test --tls
-[ ] Host: httpbin.com
+> abrade httpbin.org /anything?id={bbbbbbbbbbb} --test --tls
+[ ] Host: httpbin.org
 [ ] Pattern: /?id={bbbbbbbbbbbb}
 # ...
 [!] URL generation set log cardinality is 45.3985
 [ ] TEST: Writing URIs to console
-https://httpbin.com/anything/?id=0
-https://httpbin.com/anything/?id=1
-https://httpbin.com/anything/?id=2
+https://httpbin.org/anything/?id=0
+https://httpbin.org/anything/?id=1
+https://httpbin.org/anything/?id=2
 # ...
 ```
 
