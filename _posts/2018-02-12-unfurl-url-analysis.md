@@ -1,6 +1,6 @@
 ---
 layout: post
-title: unfurl: An Entropy-Based Link Vulnerability Tool
+title: unfurl, An Entropy-Based Link Vulnerability Tool
 image: /images/unfurl.svg
 date: 2018-02-08 16:00
 tag: A Screening Tool for Analyzing Entropy of Link Generation Algorithms
