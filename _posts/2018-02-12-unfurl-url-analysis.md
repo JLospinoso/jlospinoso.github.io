@@ -1,6 +1,6 @@
 ---
 layout: post
-title: unfurl, An Entropy-Based Link Vulnerability Tool
+title: unfurl, An Entropy-Based Link Vulnerability Analysis Tool
 image: /images/unfurl.svg
 date: 2018-02-08 16:00
 tag: A Screening Tool for Analyzing Entropy of Link Generation Algorithms
@@ -26,7 +26,7 @@ categories: [python, unfurl, abrade, hacking]
 
 Software engineers use link generation algorithms when they need to provide privileged access to a user, but the user has not prearranged an authentication mechanism like a password. Knowledge of the URL is the secret information that authenticates a user. It's vital that these link generation algorithms have *high entropy* so that an attacker cannot brute force URLs to gain unauthorized access. [unfurl][7] is a tool that analyzes large collections of URLs and estimates their entropies to sift out URLs that might be vulnerable to attack.
 
-In this blog post, we'll demonstrate how to download an entire inbox from [Gmail][8] and extract a large collection of URLs. We'll feed this collection into [unfurl][7] to analyze each link's entropy. Using [unfurl][7], we'll show how to find the [Democratic Donor Database vulnerability] disclosed in November of 2017.
+In this blog post, we'll demonstrate how to analyze a large collection of URLs with [unfurl][7], analyzing each link's entropy. As an example, we'll show how to find the [Democratic Donor Database vulnerability] disclosed in November of 2017.
 
 # Link Generation
 Link generation algorithms have many uses including in [URL shortening services][4] like [bit.ly][3] and [marketing automation services][5] like [MailChimp][6].
