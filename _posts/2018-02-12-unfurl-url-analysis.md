@@ -20,9 +20,9 @@ categories: [python, unfurl, abrade, hacking]
 [12]: https://www.grc.com/haystack.htm
 [13]: https://en.wikipedia.org/wiki/Probability_mass_function
 [14]: https://developers.google.com/gmail/api/quickstart/python
-[16]: https://github.com/JLospinoso/unfurl/blob/master/gmail.py
-[17]: https://github.com/JLospinoso/unfurl/blob/master/parse_emails.py
-[18]: https://github.com/JLospinoso/unfurl/blob/master/unfurl.py
+[15]: https://github.com/JLospinoso/unfurl/blob/master/gmail.py
+[16]: https://github.com/JLospinoso/unfurl/blob/master/parse_emails.py
+[17]: https://github.com/JLospinoso/unfurl/blob/master/unfurl.py
 
 Software engineers use link generation algorithms when they need to provide privileged access to a user, but the user has not prearranged an authentication mechanism like a password. Knowledge of the URL is the secret information that authenticates a user. It's vital that these link generation algorithms have *high entropy* so that an attacker cannot brute force URLs to gain unauthorized access. [unfurl][7] is a tool that analyzes large collections of URLs and estimates their entropies to sift out URLs that might be vulnerable to attack.
 
@@ -160,7 +160,7 @@ S_i = -1 * sum_X( F_i(x) * log_2 F_i(x) )
 We can compute the information entropy of a token by summing `S_i` across all the indices. Using these computations, unfurl produces a report for us describing which decodings produced the lowest-entropy results.
 
 # Using unfurl
-[unfurl.py][18] is a command line tool requiring Python 3:
+[unfurl.py][17] is a command line tool requiring Python 3:
 
 ```
 > unfurl.py --help
