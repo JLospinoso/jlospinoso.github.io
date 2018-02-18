@@ -23,6 +23,7 @@ categories: [python, unfurl, abrade, hacking]
 [15]: https://github.com/JLospinoso/unfurl/blob/master/gmail.py
 [16]: https://github.com/JLospinoso/unfurl/blob/master/parse_emails.py
 [17]: https://github.com/JLospinoso/unfurl/blob/master/unfurl.py
+[18]: http://www.cs.tufts.edu/comp/116/archive/fall2016/thendrickson.pdf
 
 Software engineers use link generation algorithms when they need to provide privileged access to a user, but the user has not prearranged an authentication mechanism like a password. Knowledge of the URL is the secret information that authenticates a user. It's vital that these link generation algorithms have *high entropy* so that an attacker cannot brute force URLs to gain unauthorized access. [unfurl][7] is a tool that analyzes large collections of URLs and estimates their entropies to sift out URLs that might be vulnerable to attack.
 
@@ -284,3 +285,5 @@ The [unfurl][7] repository also contains an adaptation of the [Gmail Python API]
 # Thanks
 
 Special thanks to the Electronic Frontier Foundation's [Coders' Rights Project][1].
+
+*Update*: Ming Chow, a senior lecturer at the Tufts University Department of Computer Science, brought to my attention [a student project][18] from fall of 2016 of the same name ("unfURL"). The project's author, Thomas Hendrickson, provides "a brief overview of the technology behind URL shorteners and their overall architectures."
