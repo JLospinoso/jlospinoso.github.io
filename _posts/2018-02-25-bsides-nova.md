@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Video Presentation of NGPVAN Hack, Unfurl, and Abrade
-image: /images/bsides2018.png
+image: /images/bsides2018.svg
 date: 2018-02-25 16:00
 tag: "Vulnerability Patched in Democratic Donor Database" BSidesNOVA 2018 Presentation
 categories: [video, bsides, python, ngpvan, unfurl, abrade, hacking]
