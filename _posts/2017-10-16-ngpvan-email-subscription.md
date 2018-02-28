@@ -21,8 +21,6 @@ A weak link-generation algorithm exposed Democratic Party donor information in t
 
 I disclosed the vulnerability to [NGP VAN][1]'s engineering team, which patched the vulnerability within a week.
 
-[Salon published an article last month][9] suggesting a connection between Guccifer 2.0's 2016 DNC hack and NGP VAN.
-
 In this blog post, I'll discuss the problem, give a proof of concept, and provide some recommendations to avoid similar problems in unauthenticated subscription-management portals.
 
 # NGP VAN Emails
