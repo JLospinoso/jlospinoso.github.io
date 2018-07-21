@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Common x86 Calling Conventions
-image: /images/grumpy_calling_convention.jpg
+image: /images/calling_conventions.svg
 date: 2015-04-04 16:00
 tag: Understanding cdecl, stdcall, and fastcall is critical to understanding x86 assembly
 categories: [assembly, c, developing, software]
