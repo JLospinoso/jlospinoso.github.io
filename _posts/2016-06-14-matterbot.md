@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Matterbot
-image: /images/chatbot.jpg
+image: /images/matterbot.svg
 date: 2016-06-14 21:00
 tag: A C++ Framework for Creating Simple Mattermost/Slack Bots
 categories: [c++, web, rest, mattermost, software, developing]
