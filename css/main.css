@@ -67,7 +67,7 @@ footer {
   border: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 0px) {
     .card-columns {
         column-count: 1;
     }
