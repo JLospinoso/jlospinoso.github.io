@@ -1,10 +1,9 @@
 ---
 layout: default
-title: Josh Lospinoso - Blog
+title: The Blog of Josh Lospinoso
 ---
 <div class="jumbotron jumbotron-fluid">
     <a href="{{site.url}}{{site.posts.first.url}}">
-        <p class="text-xs-center">LATEST ARTICLE</p>
         <h4 class="text-xs-center">{{ site.posts.first.title }}</h4>
         <p class="text-xs-center">{{ site.posts.first.date | date: "%B %-d, %Y" }}</p>
         <img class="card-img-top img-fluid" src="{{ site.url }}{{ site.posts.first.image }}" class="image">
