@@ -2,7 +2,7 @@
 layout: post
 title: Getting a Local Kernel Debugger Running
 date: 2015-01-11 19:12
-image: /images/2015_01_11_1.jpg
+image: /images/windbg.svg
 tag: A brief walkthrough for WinDbg in local kernel mode
 categories: [developing, kernel mode, operating systems, software, software engineering, windows internals]
 ---

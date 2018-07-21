@@ -2,7 +2,7 @@
 layout: post
 title: Visual Studio 2013 and gmock v1.7.0
 date: 2015-01-22 23:39
-image: /images/gmock.jpg
+image: /images/gmock.svg
 tag: gmock is an excellent unit testing framework, but it takes some effort to get setup
 categories: [developing, gmock, software, software engineering, test driven development, visual studio]
 ---

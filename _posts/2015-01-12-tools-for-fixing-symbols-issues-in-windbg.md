@@ -2,7 +2,7 @@
 layout: post
 title: Tools for fixing symbols issues in WinDbg
 date: 2015-01-12 03:08
-image: /images/windbg.gif
+image: /images/windbg.svg
 tag: Symbols can give some trouble when WinDbg is first installed
 categories: [developing, kernel mode, operating systems, software, software engineering, windows internals]
 ---
