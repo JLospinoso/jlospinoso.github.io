@@ -2,7 +2,7 @@
 layout: post
 title: Getting started with Vim
 date: 2015-02-28 17:37
-image: /images/vim.jpg
+image: /images/vim.svg
 tag: Vim is an excellent tool to master, but it has quite a learning curve
 categories: [developing, software, vim]
 ---
