@@ -6,7 +6,7 @@ date: 2017-02-20 12:00
 tag: snuck.me allows users to compare legitimate SSL certs with whatever their browser is getting.
 categories: [node, javascript, security, cryptography, privacy]
 ---
-[1]: https://snuck.me
+[1]: https://jlospinoso.github.io/snuckme/
 [2]: https://www.google.com
 [3]: https://snuck.me/tutorial.svg
 
