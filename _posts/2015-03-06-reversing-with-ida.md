@@ -10,16 +10,16 @@ categories: [developing, software, software engineering, reverse engineering, as
 [2]: http://blog.kaspersky.com/billion-dollar-apt-carbanak/
 [3]: http://www.metasploit.com/
 [4]: https://www.endgame.com/blog/defcon-capture-the-flag-qualification-challenge-1.html
-[5]: http://filebin.ca/1tq2s3LGLGcV/reversing-demo.exe
+[5]: https://github.com/JLospinoso/ReverseEngineering/blob/master/reversing-demo.exe
 [6]: https://www.hex-rays.com/products/ida/support/download.shtml
 [7]: https://technet.microsoft.com/en-us/sysinternals/bb842062
 [8]: https://msdn.microsoft.com/en-us/library/yd4f8bd1%28vs.71%29.aspx
 [9]: http://support.microsoft.com/kb/177429
 [10]: https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx
-[11]: http://filebin.ca/1tt5rHfH9IeI/ConsoleApplication1.zip
-[12]: http://filebin.ca/1tt64OgFqLGk/ConsoleApplication1.pdb
 [13]: https://msdn.microsoft.com/en-us/magazine/cc301805.aspx
 [14]: https://msdn.microsoft.com/query/dev12.query?appId=Dev12IDEF1&l=EN-US&k=k(__getmainargs);k(DevLang-C%2B%2B);k(TargetOS-Windows)&rd=true
+[15]: https://github.com/JLospinoso/ReverseEngineering
+[16]: https://github.com/JLospinoso/ReverseEngineering/blob/master/reversing-demo.pdb
 
 The ability to reverse engineer binaries is extremely important in many settings. Whether [analyzing malware][2] (or [writing malware][3]...), delving into [undocumented APIs][1], or even just [for fun][4], you will not have the source available. Any kind of thorough reversing effort will invariably involve staring at lots of assembly (or perhaps Java bytecode/.NET IL for managed code).
 
@@ -412,7 +412,12 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-### Links to Binary/PDB
-* [Source][12] (MD5: CB2EE7B867334D1AD8844E7F03EB89B9)
-* [PDB][11] (MD5: AFC2ADB7ED0E2C01AE1EAEDB5FA78B80)
-* [Binary][5] (MD5: 255134D98BC4A524A1777D16FF8C2642)
+### Obtaining the source
+
+The project is [available on Github][15]. To clone, simply issue the following command:
+
+```
+git clone git@github.com:JLospinoso/ReverseEngineering.git
+```
+
+The PDB is available [here][16].
