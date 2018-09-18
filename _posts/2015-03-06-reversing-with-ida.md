@@ -30,7 +30,7 @@ There are three kinds of reverse engineering analysis:
 3. *Hybrid analysis* is a mixture of the two. Iterating between static analysis of a codepath, followed by a detailed debugging (or vice versa!) can often lend insights greater than could be obtained by either alone.
 
 # A Simple Binary
-We'll be using [this simple binary][5] (MD5 checksum is `255134D98BC4A524A1777D16FF8C2642`). I've put the source at the end of the file (in the *Source* section).
+We'll be using [this simple binary][5] (SHA256 checksum is `0f838dbf8adc7ec7a937842ed26b0746c6699770eb3160868985feba2858599f`). I've put the source at the end of the file (in the *Source* section).
 
 # Strings
 One basic item of static analysis we can perform on a binary is to "run strings" on it. The Strings program, available for free as part of the [Sysinternals][7] suite of tools, dumps out all of the--you guessed it--strings that appear in the binary. Install Sysinternals and put it into your path. Navigate to the directory of the binary, and issue the command:
