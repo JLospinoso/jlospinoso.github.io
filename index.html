@@ -1,23 +1,17 @@
 ---
 layout: default
-title: Josh Lospinoso - Blog
+title: The Blog of Josh Lospinoso
 ---
-<div class="jumbotron jumbotron-fluid">
-    <a href="{{site.url}}{{site.posts.first.url}}">
-        <p class="text-xs-center">LATEST ARTICLE</p>
-        <h4 class="text-xs-center">{{ site.posts.first.title }}</h4>
-        <p class="text-xs-center">{{ site.posts.first.date | date: "%B %-d, %Y" }}</p>
-        <img class="card-img-top img-fluid" src="{{ site.url }}{{ site.posts.first.image }}" class="image">
-    </a>
-</div>
 <div class="card-columns">
     {% for post in site.posts %}
-    <div class="card card-outline-primary">
-        <img class="card-img-top img-fluid" src="{{ site.url }}{{ post.image }}" class="image">
+    <div class="card bg-light">
+		<a href="{{site.url}}{{post.url}}">
+			<img class="card-img-top img-fluid" src="{{ site.url }}{{ post.image }}" class="image">
+		</a>
         <div class="card-block">
             <h4 class="card-title text-xs-center"><a href="{{site.url}}{{post.url}}">{{ post.title }}</a></h4>
             <p class="card-text text-xs-center">{{ post.date | date: "%B %-d, %Y" }}</p>
-            <p class="card-text">{{ post.tag }}</p>
+            <p class="card-text text-xs-center">{{ post.tag }}</p>
         </div>
     </div>
     {% endfor %}

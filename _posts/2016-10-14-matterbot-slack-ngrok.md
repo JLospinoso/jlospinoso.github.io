@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Setting Up a Matterbot with Slack via ngrok
-image: /images/slackbot.jpg
+image: /images/matterbot_ngrok.svg
 date: 2016-10-14 12:00
 tag: Running a Matterbot on Slack with ngrok
 categories: [c++, web, rest, mattermost, software, developing, ngrok]

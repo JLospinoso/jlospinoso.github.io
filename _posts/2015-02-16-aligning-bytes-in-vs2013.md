@@ -2,7 +2,7 @@
 layout: post
 title: Aligning bytes in VS2013
 date: 2015-02-16 00:27
-image: /images/cpp11.jpg
+image: /images/aligning_bytes.svg
 tag: Byte alignment can be much simpler with C++11
 categories: [c++, developing, software, visual studio]
 ---

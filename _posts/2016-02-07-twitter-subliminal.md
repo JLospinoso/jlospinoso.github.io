@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Sending Subliminal Messages via Twitter Retweets
-image: /images/retweet.jpg
+image: /images/TwitterSubliminal.png
 date: 2016-02-06 22:00
 tag: Use cryptographic hashing to send subliminal messages via retweets.
 categories: [subliminal-channel, twitter, poco, cryptography, c++, developing, software]

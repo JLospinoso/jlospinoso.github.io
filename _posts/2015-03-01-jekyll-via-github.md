@@ -2,7 +2,7 @@
 layout: post
 title: Jekyll via Github
 date: 2015-03-01 15:00
-image: /images/jekyll.png
+image: /images/jekyll.svg
 tag: Github will host your Jekyll blog for free!
 categories: [developing, blogging, github, jekyll]
 ---

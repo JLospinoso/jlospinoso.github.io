@@ -66,3 +66,21 @@ footer {
 .card-borderless {
   border: 0;
 }
+
+@media (min-width: 0px) {
+    .card-columns {
+        column-count: 1;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-columns {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 1200px) {
+    .card-columns {
+        column-count: 3;
+    }
+}
