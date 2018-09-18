@@ -19,7 +19,7 @@ categories: [developing, software, software engineering, reverse engineering, as
 [13]: https://msdn.microsoft.com/en-us/magazine/cc301805.aspx
 [14]: https://msdn.microsoft.com/query/dev12.query?appId=Dev12IDEF1&l=EN-US&k=k(__getmainargs);k(DevLang-C%2B%2B);k(TargetOS-Windows)&rd=true
 [15]: https://github.com/JLospinoso/ReverseEngineering
-[16]: https://github.com/JLospinoso/ReverseEngineering/blob/master/reversing-demo.pdb
+[16]: https://github.com/JLospinoso/ReverseEngineering/raw/master/reversing-demo.pdb
 
 The ability to reverse engineer binaries is extremely important in many settings. Whether [analyzing malware][2] (or [writing malware][3]...), delving into [undocumented APIs][1], or even just [for fun][4], you will not have the source available. Any kind of thorough reversing effort will invariably involve staring at lots of assembly (or perhaps Java bytecode/.NET IL for managed code).
 
