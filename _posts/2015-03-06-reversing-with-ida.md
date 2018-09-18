@@ -10,7 +10,7 @@ categories: [developing, software, software engineering, reverse engineering, as
 [2]: http://blog.kaspersky.com/billion-dollar-apt-carbanak/
 [3]: http://www.metasploit.com/
 [4]: https://www.endgame.com/blog/defcon-capture-the-flag-qualification-challenge-1.html
-[5]: https://github.com/JLospinoso/ReverseEngineering/blob/master/reversing-demo.exe
+[5]: https://github.com/JLospinoso/ReverseEngineering/raw/master/reversing-demo.exe
 [6]: https://www.hex-rays.com/products/ida/support/download.shtml
 [7]: https://technet.microsoft.com/en-us/sysinternals/bb842062
 [8]: https://msdn.microsoft.com/en-us/library/yd4f8bd1%28vs.71%29.aspx
