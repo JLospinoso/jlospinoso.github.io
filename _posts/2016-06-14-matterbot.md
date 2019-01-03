@@ -7,17 +7,17 @@ tag: A C++ Framework for Creating Simple Mattermost/Slack Bots
 categories: [c++, web, rest, mattermost, software, developing]
 ---
 [1]: https://github.com/JLospinoso/matterbot
-[2]: http://www.mattermost.org/webhooks/
+[2]: https://www.mattermost.org/webhooks/
 [3]: https://api.slack.com/
-[4]: http://webhooks.us/
+[4]: https://webhooks.us/
 [5]: https://github.com/Microsoft/cpprestsdk
 [6]: https://jlospinoso.github.io/subliminal-channel/twitter/poco/cryptography/c++/developing/software/2016/02/06/twitter-subliminal.html
-[7]: http://pocoproject.org/
+[7]: https://pocoproject.org/
 [8]: https://docker.com/
 [9]: https://hub.docker.com/r/mattermost/mattermost-preview/
-[10]: http://docs.mattermost.com/help/getting-started/creating-teams.html
-[11]: http://docs.mattermost.com/developer/webhooks-incoming.html
-[12]: http://www.c2.com/cgi/wiki?PimplIdiom
+[10]: https://docs.mattermost.com/help/getting-started/creating-teams.html
+[11]: https://docs.mattermost.com/developer/webhooks-incoming.html
+[12]: https://www.c2.com/cgi/wiki?PimplIdiom
 [13]: https://jlospinoso.github.io/c++/developing/software/visual%20studio/2015/03/11/lambdas-and-cpp11.html
 [14]: https://github.com/JLospinoso/matterbot/issues
 [15]: https://en.wikipedia.org/wiki/Media_type
@@ -50,7 +50,7 @@ f25bbb6897ca        mattermost/mattermost-preview   "/bin/sh -c ./docker-"   3 m
 ```
 
 You'll note that the container has mapped the docker host's port 8065. If you point a web
-browser at *http://[my-docker-ip]:8065*, you should be greeted with a friendly user
+browser at *https://[my-docker-ip]:8065*, you should be greeted with a friendly user
 signup screen. Follow the on-screen instructions or [see the docs][10] to set up a
 username and a team.
 
@@ -71,7 +71,7 @@ are just for administrative accounting purposes. Select the channel that you wan
 to post messages into, then click save. Take note of the resulting URL, e.g.:
 
 ```
-http://192.168.1.2:8065/hooks/ktjckuh9ptrnmgoiunadsitgmc
+https://192.168.1.2:8065/hooks/ktjckuh9ptrnmgoiunadsitgmc
 ```
 
 Next, setup an Outgoing Webhook by clicking on the "Outgoing Webhooks" option under the
@@ -85,7 +85,7 @@ Finally, you'll need to specify your callback URL. Locate the IP of the machine 
 be running your matterbot from, and enter it in the "Callback URLs" box, e.g.:
 
 ```
-http://192.168.1.3
+https://192.168.1.3
 ```
 
 Also take note of the token that gets created for your outgoing webhook, e.g.:
@@ -122,9 +122,9 @@ MatterbotSample contains one file, `main.cpp`, but it illustrates the main featu
 of the library. In `main()`, we create a bot by injecting four parameters:
 
 ```cpp
-wstring mattermost_url = L"http://192.168.4.177:8065/",
+wstring mattermost_url = L"https://192.168.4.177:8065/",
 	incoming_hook_token = L"ktjckuh9ptrnmgoiunadsitgmc",
-	outgoing_hook_route = L"http://192.168.4.99/",
+	outgoing_hook_route = L"https://192.168.4.99/",
 	outgoing_hook_token = L"omy7rqidk3dqdqky39yssm4bao";
 //...
 Matterbot bot(mattermost_url, incoming_hook_token, outgoing_hook_route, outgoing_hook_token);

@@ -8,7 +8,7 @@ categories: [infosec, usb rubber ducky, lan turtle, c#, CLR, WPF, .NET, security
 ---
 [1]: https://github.com/JLospinoso/beamgun
 [2]: https://samy.pl/poisontap/
-[3]: http://usbrubberducky.com/#!index.md
+[3]: https://usbrubberducky.com/#!index.md
 [4]: https://hak5.org
 [5]: https://lanturtle.com/
 [6]: https://www.hak5.org/episodes/hak5-1824

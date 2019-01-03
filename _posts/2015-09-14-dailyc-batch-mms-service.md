@@ -8,12 +8,12 @@ categories: [groovy, gorm, java, Spring Boot, Mogreet, software]
 ---
 [1]: https://developer.mogreet.com/
 [2]: https://github.com/JLospinoso/dailyc
-[3]: http://projects.spring.io/spring-boot/
+[3]: https://projects.spring.io/spring-boot/
 [4]: https://gradle.org/
 [5]: https://grails.github.io/grails-doc/latest/guide/GORM.html
 [6]: https://en.wikipedia.org/wiki/Cron
 [7]: https://docs.gradle.org/current/userguide/gradle_wrapper.html
-[8]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+[8]: https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [9]: https://github.com/mogreet/javaSDK
 [10]: https://github.com/JLospinoso/dailyc/blob/master/mogreet/src/test/java/net/lospi/mogreet/MogreetManagerTest.java
 [11]: https://developer.mogreet.com/dashboard

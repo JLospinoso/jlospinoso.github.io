@@ -6,15 +6,15 @@ date: 2015-04-04 16:00
 tag: Understanding cdecl, stdcall, and fastcall is critical to understanding x86 assembly
 categories: [assembly, c, developing, software]
 ---
-[1]: http://en.wikipedia.org/wiki/X86_calling_conventions
-[2]: http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html
-[3]: http://www.nasm.us/
+[1]: https://en.wikipedia.org/wiki/X86_calling_conventions
+[2]: https://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html
+[3]: https://www.nasm.us/
 [4]: https://jlospinoso.github.io/developing/software/software%20engineering/reverse%20engineering/assembly/2015/03/06/reversing-with-ida.html
 [5]: https://msdn.microsoft.com/en-us/library/zkwh89ks.aspx
 [6]: https://github.com/JLospinoso/x86CallingConventions
 [7]: https://msdn.microsoft.com/en-us/library/a90k134d.aspx
-[8]: http://www.nasm.us/doc/nasmdoc7.html
-[9]: http://stackoverflow.com/questions/2035568/why-do-stacks-typically-grow-downwards
+[8]: https://www.nasm.us/doc/nasmdoc7.html
+[9]: https://stackoverflow.com/questions/2035568/why-do-stacks-typically-grow-downwards
 [10]: https://msdn.microsoft.com/en-us/library/c1h23y6c.aspx
 
 In some situations, we may want to integrate some hand-crafted object code into our project. This is most productively accomplished by writing [Intel x86 assembly][2] and assembling it into object code via an assembler like [NASM][3]. In other situations, we may be looking at disassembly (that may have come from C, Assembly, or both). Further, on x86 architectures all of our C/C++ code gets compiled into [Intel x86 object code][2]. So if we are [reverse engineering unmanaged code][4], it will also be critical to understand how functions call each other at the lowest level. In either case, we must know exactly how functions are called, otherwise it would be difficult to make heads or tails of a program's flow. In this post, I'll go over the three most common calling conventions. You'll need to know only the very basics of assembly to follow along.

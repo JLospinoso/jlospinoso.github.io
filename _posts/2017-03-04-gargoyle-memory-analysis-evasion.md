@@ -26,7 +26,7 @@ categories: [security, assembly, c, cpp, developing, software]
 [18]: https://github.com/pakt/ropc
 [19]: https://jlospinoso.github.io/assembly/c/developing/software/2015/04/04/common-x86-calling-conventions.html
 [20]: https://www.visualstudio.com/downloads/
-[21]: http://www.nasm.us/pub/nasm/releasebuilds/?C=M;O=D
+[21]: https://www.nasm.us/pub/nasm/releasebuilds/?C=M;O=D
 [22]: https://github.com/JLospinoso/gargoyle/issues
 [23]: https://msdn.microsoft.com/en-us/library/windows/desktop/ms684954(v=vs.85).aspx
 [24]: https://msdn.microsoft.com/en-us/library/windows/desktop/aa363772(v=vs.85).aspx

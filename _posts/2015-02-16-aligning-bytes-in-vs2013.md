@@ -6,9 +6,9 @@ image: /images/aligning_bytes.svg
 tag: Byte alignment can be much simpler with C++11
 categories: [c++, developing, software, visual studio]
 ---
-[1]: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2341.pdf
+[1]: https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2341.pdf
 [2]: https://msdn.microsoft.com/en-us/library/hh567368.aspx
-[3]: http://en.cppreference.com/w/cpp/memory/align
+[3]: https://en.cppreference.com/w/cpp/memory/align
 [3]: https://gist.github.com/JLospinoso/1abf58847c41b908764568a477256f46
 [db1]: {{site.url}}/images/2015-02-16_1.jpg "Data Buffer 1"
 [db2]: {{site.url}}/images/2015-02-16_2.jpg "Data Buffer 2"

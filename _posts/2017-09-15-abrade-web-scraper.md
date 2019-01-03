@@ -8,7 +8,7 @@ categories: [cpp, developing, software]
 ---
 [1]: https://github.com/JLospinoso/abrade
 [2]: https://www.openssl.org/
-[3]: http://www.boost.org/
+[3]: https://www.boost.org/
 [4]: https://hub.docker.com/r/jlospinoso/abrade/
 [5]: https://quay.io/repository/jlospinoso/abrade
 [6]: https://www.docker.com/
@@ -22,7 +22,7 @@ categories: [cpp, developing, software]
 [14]: https://developer.chrome.com/devtools
 [15]: https://gitlab.com
 [16]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
-[17]: http://manpages.ubuntu.com/manpages/zesty/man5/systemd.unit.5.html
+[17]: https://manpages.ubuntu.com/manpages/zesty/man5/systemd.unit.5.html
 [18]: https://aws.amazon.com/s3/
 [19]: https://www.ipify.org/
 [20]: https://en.wikipedia.org/wiki/Time_series
@@ -525,7 +525,7 @@ For example, this invocation writes successfully found dings to `dings.txt` and 
 
 Abrade has basic SOCKS 5 proxy support built-in (it only supports no-authentication mode). One common use-case for this functionality is to use a locally running Tor service to route your requests. You'll need the "Expert Bundle" (Windows) or the "Standalone Tor" (Linux) from [torproject.org][10]. If you run the Tor service with default settings, it will listen for SOCKS 5 connection requests on 127.0.0.1:9050. You can instruct Tor to use such a service using the `--tor` option.
 
-You can determine the IP address you're coming from using [ipify][11]. By visiting [http://api.ipify.org][19], you'll get back a plaintext response containing your IP. We can use [api.ipify.org][19] to check out what IP we're coming from, then compare where we're coming from while using a Tor proxy.
+You can determine the IP address you're coming from using [ipify][11]. By visiting [https://api.ipify.org][19], you'll get back a plaintext response containing your IP. We can use [api.ipify.org][19] to check out what IP we're coming from, then compare where we're coming from while using a Tor proxy.
 
 There are two options that will help us in this situation:
 

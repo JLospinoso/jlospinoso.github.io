@@ -48,17 +48,17 @@ Session Status                online
 Account                       Josh Lospinoso (Plan: Free)
 Version                       2.1.14
 Region                        United States (us)
-Web Interface                 http://127.0.0.1:4040
-Forwarding                    http://88319c22.ngrok.io -> localhost:8000
+Web Interface                 https://127.0.0.1:4040
+Forwarding                    https://88319c22.ngrok.io -> localhost:8000
 Forwarding                    https://88319c22.ngrok.io -> localhost:8000
 
 Connections                   ttl     opn     rt1     rt5     p50     p90
                               0       0       0.00    0.00    0.00    0.00
 ```
 
-You can navigate to http://127.0.0.1:4040 in your browser, and you'll be able
+You can navigate to https://127.0.0.1:4040 in your browser, and you'll be able
 to interact with ngrok through a nice web app. Notice that you've now got an internet-routable domain that is mapped to a local
-port on your machine! In my case, it's http://88319c22.ngrok.io.
+port on your machine! In my case, it's https://88319c22.ngrok.io.
 
 Unless you have a paid plan with ngrok, this subdomain will change whenever you
 restart ngrok. Keep this in mind as you're developing!
@@ -104,7 +104,7 @@ The only requirement to get things up and running is to paste your routes and to
 //TODO: Put your own routes and tokens here
 wstring mattermost_url = L"https://hooks.slack.com", // URL to the incoming webhook for Mattermost/Slack
   incoming_hook_route = L"services/AAAAAAAAA/BBBBBBBBB/CCCCCCCCCCCCCCCCCCCCCCCC", // Route
-  outgoing_hook_route = L"http://127.0.0.1:8000/", // URL of the box running matterbot
+  outgoing_hook_route = L"https://127.0.0.1:8000/", // URL of the box running matterbot
   outgoing_hook_token = L"CCCCCCCCCCCCCCCCCCCCCCCC";
 ```
 

@@ -7,7 +7,7 @@ tag: Vulnerability Patched in Democratic Donor Database, BSidesNOVA 2018 Present
 categories: [video, bsides, python, ngpvan, unfurl, abrade, hacking]
 ---
 [1]: https://www.irongeek.com/i.php?page=videos%2Fbsidesnova2018%2F204-vulnerability-patched-in-democratic-donor-database-josh-lospinoso
-[2]: http://www.bsidesnova.org/
+[2]: https://www.bsidesnova.org/
 [3]: https://jlospinoso.github.io/python/unfurl/abrade/hacking/2018/02/08/unfurl-url-analysis.html
 [4]: https://jlospinoso.github.io/responsible%20disclosure/abrade/hacking/2017/10/16/ngpvan-email-subscription.html
 [5]: https://jlospinoso.github.io/cpp/developing/software/2017/09/15/abrade-web-scraper.html

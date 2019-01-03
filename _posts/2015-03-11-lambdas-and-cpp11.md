@@ -6,24 +6,24 @@ date: 2015-03-11 07:00
 tag: Using lambdas can make for some wonderfully elegant code
 categories: [c++, developing, software, visual studio]
 ---
-[1]: http://en.wikipedia.org/wiki/Anonymous_function
+[1]: https://en.wikipedia.org/wiki/Anonymous_function
 [2]: https://www.haskell.org/
-[3]: http://fsharp.org/
-[4]: http://www.oracle.com/technetwork/java/javase/overview/java8-2100321.html
+[3]: https://fsharp.org/
+[4]: https://www.oracle.com/technetwork/java/javase/overview/java8-2100321.html
 [5]: https://msdn.microsoft.com/en-us/library/bb397897.aspx
-[6]: http://www.pavley.com/tag/functional-programming/
+[6]: https://www.pavley.com/tag/functional-programming/
 [7]: https://github.com/JLospinoso/LambdasCpp11
-[8]: http://en.wikipedia.org/wiki/Imperative_programming
-[9]: http://blog.codinghorror.com/code-smells/
+[8]: https://en.wikipedia.org/wiki/Imperative_programming
+[9]: https://blog.codinghorror.com/code-smells/
 [10]: https://msdn.microsoft.com/en-us/library/aa730844%28v=vs.80%29.aspx
-[11]: http://en.wikipedia.org/wiki/Map_%28higher-order_function%29
-[12]: http://en.cppreference.com/w/cpp/language/lambda
-[13]: http://stackoverflow.com/questions/19208561/scala-predicates-and-filter-functions
-[14]: http://en.cppreference.com/w/cpp/language/storage_duration
-[15]: http://www.meetingcpp.com/index.php/imprint.html
+[11]: https://en.wikipedia.org/wiki/Map_%28higher-order_function%29
+[12]: https://en.cppreference.com/w/cpp/language/lambda
+[13]: https://stackoverflow.com/questions/19208561/scala-predicates-and-filter-functions
+[14]: https://en.cppreference.com/w/cpp/language/storage_duration
+[15]: https://www.meetingcpp.com/index.php/imprint.html
 [16]: https://twitter.com/meetingcpp
-[17]: http://en.cppreference.com/w/cpp/algorithm/count
-[18]: http://en.cppreference.com/w/cpp/algorithm/transform
+[17]: https://en.cppreference.com/w/cpp/algorithm/count
+[18]: https://en.cppreference.com/w/cpp/algorithm/transform
 
 According to [Wikipedia][1], a lambda expression (*lambda*) is "a function that is not bound to an identifier." In other words, it's a function that you can pass around without having to name (define) it separately. These are ubiquitous in functional programming languages like [Haskell][2] and [F#][3]. Why?
 

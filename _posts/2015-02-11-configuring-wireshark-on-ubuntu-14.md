@@ -37,7 +37,7 @@ sudo setcap cap_net_raw,cap_net_admin+eip /usr/bin/dumpcap
 
 See the following for more assistance should you still have issues:
 
-* <http://wiki.wireshark.org/CaptureSetup/CapturePrivileges>
-* <http://ubuntuforums.org/showthread.php?t=2039978>
+* <https://wiki.wireshark.org/CaptureSetup/CapturePrivileges>
+* <https://ubuntuforums.org/showthread.php?t=2039978>
 * <https://ask.wireshark.org/questions/7976/wireshark-setup-linux-for-nonroot-user>
-* <http://packetlife.net/blog/2010/mar/19/sniffing-wireshark-non-root-user/>
+* <https://packetlife.net/blog/2010/mar/19/sniffing-wireshark-non-root-user/>

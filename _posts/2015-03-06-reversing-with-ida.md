@@ -6,15 +6,15 @@ image: /images/reversing.svg
 tag: Basic static analysis with strings, dumpbin, and IDA
 categories: [developing, software, software engineering, reverse engineering, assembly]
 ---
-[1]: http://undocumented.ntinternals.net/
-[2]: http://blog.kaspersky.com/billion-dollar-apt-carbanak/
-[3]: http://www.metasploit.com/
+[1]: https://undocumented.ntinternals.net/
+[2]: https://blog.kaspersky.com/billion-dollar-apt-carbanak/
+[3]: https://www.metasploit.com/
 [4]: https://www.endgame.com/blog/defcon-capture-the-flag-qualification-challenge-1.html
 [5]: https://github.com/JLospinoso/ReverseEngineering/raw/master/reversing-demo.exe
 [6]: https://www.hex-rays.com/products/ida/support/download.shtml
 [7]: https://technet.microsoft.com/en-us/sysinternals/bb842062
 [8]: https://msdn.microsoft.com/en-us/library/yd4f8bd1%28vs.71%29.aspx
-[9]: http://support.microsoft.com/kb/177429
+[9]: https://support.microsoft.com/kb/177429
 [10]: https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx
 [13]: https://msdn.microsoft.com/en-us/magazine/cc301805.aspx
 [14]: https://msdn.microsoft.com/query/dev12.query?appId=Dev12IDEF1&l=EN-US&k=k(__getmainargs);k(DevLang-C%2B%2B);k(TargetOS-Windows)&rd=true
@@ -57,7 +57,7 @@ Usage: strings [option(s)] [file(s)]
   -h --help                 Display this information
   -v -V --version           Print the program's version number
 strings: supported targets: ...
-Report bugs to <http://www.sourceware.org/bugzilla/>
+Report bugs to <https://www.sourceware.org/bugzilla/>
 ```
 
 Let's give the defaults a try:
