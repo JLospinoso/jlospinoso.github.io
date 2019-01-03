@@ -10,8 +10,8 @@ categories: [c++, developing, software, visual studio]
 [2]: https://msdn.microsoft.com/en-us/library/hh567368.aspx
 [3]: https://en.cppreference.com/w/cpp/memory/align
 [3]: https://gist.github.com/JLospinoso/1abf58847c41b908764568a477256f46
-[db1]: {{site.url}}/images/2015-02-16_1.jpg "Data Buffer 1"
-[db2]: {{site.url}}/images/2015-02-16_2.jpg "Data Buffer 2"
+[db1]: {{site.baseurl}}/images/2015-02-16_1.jpg "Data Buffer 1"
+[db2]: {{site.baseurl}}/images/2015-02-16_2.jpg "Data Buffer 2"
 
 In some situations where fine-grained control over memory is required, we must be careful about how we pack bytes into memory. These alignment issues can arise e.g. with particular kinds of processors or when crafting low-level input/output for hardware.
 

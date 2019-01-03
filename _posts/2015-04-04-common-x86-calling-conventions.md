@@ -242,7 +242,7 @@ Notice that we must only clean 4 bytes from the stack, since two of our argument
 
 Notice that each of our test cases looks exactly the same--from C, the calling convention really doesn't matter.
 
-![Test Results]({{ site.url }}/images/CallingConventionTests.jpg)
+![Test Results]({{ site.baseurl }}/images/CallingConventionTests.jpg)
 
 Where it matters is when we dive underneath the surface and get into the x86 object code. Our three conventions have these main features:
 

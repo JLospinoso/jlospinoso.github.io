@@ -5,11 +5,11 @@ title: The Blog of Josh Lospinoso
 <div class="card-columns">
     {% for post in site.posts %}
     <div class="card bg-light">
-		<a href="{{site.url}}{{post.url}}">
-			<img class="card-img-top img-fluid" src="{{ site.url }}{{ post.image }}" class="image">
+		<a href="{{site.baseurl}}{{post.url}}">
+			<img class="card-img-top img-fluid" src="{{ site.baseurl }}{{ post.image }}" class="image">
 		</a>
         <div class="card-block">
-            <h4 class="card-title text-xs-center"><a href="{{site.url}}{{post.url}}">{{ post.title }}</a></h4>
+            <h4 class="card-title text-xs-center"><a href="{{site.baseurl}}{{post.url}}">{{ post.title }}</a></h4>
             <p class="card-text text-xs-center">{{ post.date | date: "%B %-d, %Y" }}</p>
             <p class="card-text text-xs-center">{{ post.tag }}</p>
         </div>

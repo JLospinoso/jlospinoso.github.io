@@ -11,10 +11,10 @@ categories: [developing, software, vim]
 [3]: https://www.vim.org/download.php
 [4]: https://vim.rtorr.com/
 [5]:  https://pascalprecht.github.io/2014/03/18/why-i-use-vim/
-[vim1]: {{site.url}}/images/2015-02-28_1.jpg "Normal Mode on Vim"
-[vim2]: {{site.url}}/images/2015-02-28_2.jpg "Insert Mode on Vim"
-[vim3]: {{site.url}}/images/2015-02-28_3.jpg "Text Inserted"
-[vim4]: {{site.url}}/images/2015-02-28_4.jpg "Learning Curve"
+[vim1]: {{site.baseurl}}/images/2015-02-28_1.jpg "Normal Mode on Vim"
+[vim2]: {{site.baseurl}}/images/2015-02-28_2.jpg "Insert Mode on Vim"
+[vim3]: {{site.baseurl}}/images/2015-02-28_3.jpg "Text Inserted"
+[vim4]: {{site.baseurl}}/images/2015-02-28_4.jpg "Learning Curve"
 
 Learning to use Vim can be a great investment. It's installed on many platform by default (well, at least its ancestor [Vi][1]), highly customizable, and regardless of what you're editing--config files, source from various languages, etc.--it is highly portable. In [The Pragmatic Programmer][2], we are encouraged to become masters at editors like Vim and Emacs just as a woodworker must become a master at hand tools.
 
