@@ -2,13 +2,13 @@
 layout: post
 title: C Constructs That Don't Work in C++
 image: /images/cconstructs.svg
-date: 2018-04-28 06:00
+date: 2019-04-28 06:00
 tag: A Survey of the C Constructs That Don't Work in C++
 categories: [C, C++, programming, developing, software]
 ---
-[1]: https://warontherocks.com/2018/07/fish-out-of-water-how-the-military-is-an-impossible-place-for-hackers-and-what-to-do-about-it/
+[1]: https://www.amazon.com/Programming-Language-hardcover-4th/dp/0321958322/ref=sr_1_1?keywords=stroustrup+C%2B%2B&qid=1556464518&s=gateway&sr=8-1
 
-C++ began life as a fork of C before C was even standardized, so C++ compilers can often directly compile C programs. The price of admission in this case is zero—a programmer can gradually incorporate C++ features into existing C programs as she sees fit. However, C++ isn’t a superset of C, so as a C programmer, it’s worth knowing where disjoints lie. While not exhaustive, this section contains a potpourri of some common problem areas. For a more rigorous treatment, see The C++ Programming Language by Bjarne Stroustrup (4th Ed.), Chapter 44.
+C++ began life as a fork of C before C was even standardized, so C++ compilers can often directly compile C programs. The price of admission in this case is zero—a programmer can gradually incorporate C++ features into existing C programs as she sees fit. However, C++ isn’t a superset of C, so as a C programmer, it’s worth knowing where disjoints lie. While not exhaustive, this section contains a potpourri of some common problem areas. For a more rigorous treatment, see [The C++ Programming Language by Bjarne Stroustrup (4th Ed.)][1], Chapter 44.
 
 This post discusses three specific C concepts that diverge from C++:
 
