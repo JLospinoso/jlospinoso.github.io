@@ -131,7 +131,9 @@ These are not available in C++; however, the constructor has similar functionali
 
 The C99 standard also introduced the `restrict` keyword. If pointer `x` is marked `restrict`, the programmer promises that no other pointer will refer to the object pointed to by `x`, which can potentially enable the compiler to emit more efficient code. This keyword doesn’t exist in the C++ standard, although some compilers may support it (for example msvc supports `__restrict`).
 
-Finally, you turn to flexible array members. Since C99, it is valid to include a dimensionless array as the last member of a struct:
+Finally, you turn to flexible array members. Since C99, it is valid to include a dimensionless array as the last member of a `struct`:
+
+```
 struct Bar {
   int x;
   char y[];
@@ -142,8 +144,9 @@ void make_bar() {
   bar->y[255] = 42;
   free(bar);
 }
+```
 
-C++ doesn’t have support for such members.
+C++ doesn’t have support for such members, but there are higher-level C++ constructs that can provide similar functionality with greater safety.
 
 # Conclusion
 
