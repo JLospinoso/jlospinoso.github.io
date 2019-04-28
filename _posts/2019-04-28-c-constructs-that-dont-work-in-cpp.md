@@ -105,12 +105,46 @@ void fn(int);
 
 Now the compiler can enforce that you're invoking our functions with the intended parameters. C's handling of parameterless functions is a historic hold-over that has the potential to cause serious headaches.
 
+# C99
+
+If you're a C programmer wanting to venture into the C++ world, you'll have to give up these habits. It's probably fair to say that, after getting used to the C++ way of doing business, you won't miss them too much!
+
+In contrast, some of the features introduced in the C99 standard made a number of welcome improvements to C. One such improvement is the designated initializer, which provides some syntactic sugar to the programmer when initializing members:
+
+```
+struct Address {
+  char street[256];
+  char city[256];
+  char state[256];
+  int zip;
+};
+
+struct Address white_house = {
+  .street = "1600 Pennsylvania Avenue NW",
+  .city = "Washington",
+  .state = "District of Columbia",
+  .zip = 20500
+};
+```
+
+These are not available in C++; however, the constructor has similar functionality with much stronger guarantees called class invariants. A class invariant is some behavior about the class that doesn’t change throughout its lifetime. The programmer has absolute autonomy in deciding what these invariants are, so they are an extremely powerful feature of C++. You’ll talk about constructors and class invariants again later in this chapter.
+
+The C99 standard also introduced the `restrict` keyword. If pointer `x` is marked `restrict`, the programmer promises that no other pointer will refer to the object pointed to by `x`, which can potentially enable the compiler to emit more efficient code. This keyword doesn’t exist in the C++ standard, although some compilers may support it (for example msvc supports `__restrict`).
+
+Finally, you turn to flexible array members. Since C99, it is valid to include a dimensionless array as the last member of a struct:
+struct Bar {
+  int x;
+  char y[];
+};
+
+void make_bar() {
+  struct Bar* bar = malloc(sizeof(int) + 256 * sizeof(char));
+  bar->y[255] = 42;
+  free(bar);
+}
+
+C++ doesn’t have support for such members.
+
 # Conclusion
 
-If you're a C programmer wanting to venture into the C++ world, you'll have to give up these habits:
-
-* weak pointer typing
-* `enum` values
-* function prototypes without arguments
-
-It's probably fair to say that, after getting used to the C++ way of doing business, you won't miss them too much!
+While C++ largely supports well-written C programs, there are some corner cases to watch out for. Hopefully this post will help those veteran C programmers looking to dabble in the brave new world of C++ a mapping of those territories.
