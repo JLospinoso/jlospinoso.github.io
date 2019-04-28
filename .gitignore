@@ -4,3 +4,4 @@ _site/
 *~
 *.lock
 .idea/
+.DS_Store
