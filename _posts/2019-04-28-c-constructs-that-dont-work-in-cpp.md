@@ -19,36 +19,34 @@ This post discusses three specific C concepts that diverge from C++:
 Of course, it's best to write idiomatic C++. But for C programmers who want to adopt C++ in measured steps, it's nice to know what old habits C++ simply won't abide!
 
 # Pointer Typing
-C++ regards pointers with stronger typing than C, meaning you can’t implicitly convert from void*. For example, a common idiom when using malloc is to lean on implicit conversion:
+C++ regards pointers with stronger typing than C, meaning you can’t implicitly convert from `void*`. For example, a common idiom when using malloc is to lean on implicit conversion:
+
 ```c
 int *value = malloc(sizeof(int) * 100);
 ```
 
 This code is dynamically allocating enough space for 100 `int` objects. `malloc` returns a `void` pointer, which is implicitly cast to an `int` pointer and assigned to value.
 
-In C++, this isn’t valid, although the fix is fairly straightforward. You’ll need an explicit cast:
+In C++, this isn’t valid. You could provide an explicit cast, but you must be careful:
 
 ```cpp
 int *value = (int*)malloc(sizeof(int) * 100);
 ```
 
-Here, the allocated memory block returned by `malloc` is cast explicitly as a pointer to an `int` with `(int*)`—that is, with a C-style cast.
-A more idiomatic C++ approach is to use a C++-style cast instead. These casts are safer than C-style casts, because, unlike C-style casts, they constrain the kinds of casts that are permitted and don’t allow dangerous reinterpretations. One of the most common C++-style casts is the static_cast:
+The memory pointed-to by the return value of `malloc` is uninitialized. You should only do two things with such memory: (a) deallocate it, or (b) use it as storage for initializing new objects, e.g. with an in-place `new`.
 
-```c++
-int *value = static_cast<int*>(malloc(sizeof(int) * 100));
-```
 
-The `static_cast` conversion will take a data type to convert to in angled brackets and the expression to convert in parenthesis. Unlike the C-style cast, the `static_cast` doesn’t allow us to change constness or convert between integer and pointer types.
-
-A similar mismatch surrounds the constness of pointers. The following is valid C but not valid C++:
+# Constraint Violations
+In older C code, you might find (technically incorrect) constructions like the following:
 
 ```c
 const int x = 100;
 int* x_ptr = &x;
 ```
 
-Although the compiler is likely to emit a warning here, C has no problem implicitly shucking off the const protections on x. C++ thinks this is unsafe (it is) and will produce an error. To quell the C++ compiler, you can either use an explicit C-style cast or use a const_cast. Altogether, you have three ways of obtaining a pointer to the const int x in C++:
+This is a constraint violation because you've implicitly shucked off the `const` protections on `x`. Some compilers will let this pass with a warning. GCC 8.3 will, for example, compile this code as C. As C++, it will instead produce an error.
+
+In both C and C++, the remedy is to make the cast explicit. In C++, you can either use an explicit C-style cast or use a `const_cast`.
 
 ```cpp
 int* x_ptr_1 = (int*)&x; // (1)
@@ -60,7 +58,7 @@ First, you have the chainsaw approach of using an explicit C-style cast `(1)`. A
 
 Taking this approach may require some refactoring to deal with a `const` rather than non-`const` pointer, but such a refactor is almost assuredly improving the quality of your code anyway. Remember if you’re in the market for a `const_cast`, you’d better have a very good reason for it, for example interacting with 3rd party or legacy code that you are not allowed to modify. In such a situation where e.g. you know that a function takes a read-only parameter that is not marked const, you can use const_cast to document the point at which you are taking off the safety guards. Such points should be the first place to examine if our program exhibits strange behavior.
 
-C++ also has many additional keywords that C doesn’t, which you can’t use as identifiers in your C++ code. For example, `char *new` wouldn’t be a valid declaration since `new` is a reserved keyword in C++ for memory allocation (which you’ll cover in more detail later on), and would likely keep your code from compiling. Here again, the fix is straightforward: simply use a different identifier name.
+C++ also has many additional keywords that C doesn’t, which you can’t use as identifiers in your C++ code. For example, `char *new` wouldn’t be a valid declaration since `new` is a reserved keyword in C++ for dynamic object initialization. The fix is straightforward: simply use a different identifier name.
 
 # enum Values
 
@@ -127,7 +125,9 @@ struct Address white_house = {
 };
 ```
 
-These are not available in C++; however, the constructor has similar functionality with much stronger guarantees called class invariants. A class invariant is some behavior about the class that doesn’t change throughout its lifetime. The programmer has absolute autonomy in deciding what these invariants are, so they are an extremely powerful feature of C++. You’ll talk about constructors and class invariants again later in this chapter.
+These are not available in C++; however, the constructor has similar functionality with much stronger guarantees called class invariants. A class invariant is some behavior about the class that doesn’t change throughout its lifetime. The programmer has absolute autonomy in deciding what these invariants are, so they are an extremely powerful feature of C++.
+
+> Note: Designated initializers will likely be available in C++20.
 
 The C99 standard also introduced the `restrict` keyword. If pointer `x` is marked `restrict`, the programmer promises that no other pointer will refer to the object pointed to by `x`, which can potentially enable the compiler to emit more efficient code. This keyword doesn’t exist in the C++ standard, although some compilers may support it (for example msvc supports `__restrict`).
 
@@ -146,7 +146,7 @@ void make_bar() {
 }
 ```
 
-C++ doesn’t have support for such members, but there are higher-level C++ constructs that can provide similar functionality with greater safety.
+C++ doesn’t have support for such members, but there are higher-level C++ constructs that can provide similar functionality with greater safety--such as STL containers and `std::unique_ptr`.
 
 # Conclusion
 
