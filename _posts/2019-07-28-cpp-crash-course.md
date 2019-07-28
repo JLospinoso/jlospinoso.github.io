@@ -61,7 +61,7 @@ I'd come across a blog post by [Chris Sanders](https://chrissanders.org/2014/02/
 
 After thousands of hours writing and editing C++ Crash Course over the course of nearly three years, I can attest to his experiences.
 
-It took twice as long to write half of what I proposed. I began writing a projects-based C++ with a short introduction to the language. I'd send chapters off to the editors that I thought were pretty solid only to receive them back dripping in red pixels. Rather than try to write a rushed C++ introduction that didn't really serve beginners or experienced C++ programmers well, I decided to focus on writing the best introductory modern C++ text I could. It took almost 800 pages. (So the projects-based chapters will have to wait for another book!)
+It took twice as long to write half of what I proposed. I began writing a projects-based C++ book with a short introduction to the language. I'd send chapters off to the editors that I thought were pretty solid only to receive them back dripping in red pixels. Rather than try to write a rushed C++ introduction that didn't really serve beginners or experienced C++ programmers well, I decided to focus on writing the best introductory modern C++ text I could. It took almost 800 pages. (So the projects-based chapters will have to wait for another book!)
 
 My experience with various expositive formats like scholarly articles, blog posts, and theses, has taught me that writing is hard--but writing a book was even harder. C++ Crash Course appeals to a more general audience. In my experience, the peer review process is more focused on scientific rigor than on clarity, flow, or comprehensiveness.
 
