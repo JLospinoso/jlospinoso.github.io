@@ -1,3 +1,4 @@
+---
 layout: post
 title: C++ Crash Course
 image: /images/cppcc.png
