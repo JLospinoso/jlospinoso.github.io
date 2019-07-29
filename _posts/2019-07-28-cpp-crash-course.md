@@ -68,7 +68,7 @@ My experience with various expositive formats like scholarly articles, blog post
 I can confidently say that, through the brilliant editors at No Starch Press, I produced the best writing of my life. I'm glad I did it, even if I comically underestimated the required effort.
 
 ### Farewell
-Sending my final approvals to my production editor conjured mixed feelings.
+Sending my final approvals to my editor conjured mixed feelings.
 
 The book was at times my fidget cube, ready to be edited during a soul-crushing teleconference. Other times it was my sleep aid, waiting for me to inject some levity into a particularly dry passage during a bout of insomnia. Always it was a stern tutor, suggesting humility as I struggled to present content I hadn't yet mastered. No matter the time of day or what life events transpired, this book was always there for me. And I'll miss it deeply.
 
