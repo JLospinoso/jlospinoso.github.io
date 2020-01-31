@@ -2,7 +2,7 @@
 layout: post
 title: C++ for Hackers
 image: /images/cpp_for_hackers.jpg
-date: 2020-11-01 06:00
+date: 2020-1-11 06:00
 tag: A presentation to Army Cyber Command Developers about C++
 categories: [C, C++, programming, developing, software, infosec]
 ---
