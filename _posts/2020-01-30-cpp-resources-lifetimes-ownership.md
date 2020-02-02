@@ -11,6 +11,6 @@ categories: [C, C++, programming, developing, software, infosec]
 
 Shift5 co-founder Josh Lospinoso kicks of the inaugural Washington DC C++ User Group Meeting with a talk about object lifetimes, resource ownership, exceptions, and copy/move semantics in C++. Combined, these ideas allow the developer to employ the powerful resource acquisition is initialization (RAII)/constructor acquires destructor releases (CADRe) paradigms.
 
-The source material for this talk is (Chapter 4 of C++ Crash Course)[https://ccc.codes]. The companion code can be found (on Github)[https://github.com/JLospinoso/ccc/tree/master/chapter_4]
+The source material for this talk is [Chapter 4 of C++ Crash Course](https://ccc.codes). The companion code can be found [on Github](https://github.com/JLospinoso/ccc/tree/master/chapter_4).
 
-You can follow the DC C++ User Group (on Meetup)[https://www.meetup.com/dccppug/]
+You can follow the DC C++ User Group [on Meetup](https://www.meetup.com/dccppug/).
