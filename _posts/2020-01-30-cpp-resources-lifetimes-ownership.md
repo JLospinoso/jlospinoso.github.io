@@ -1,6 +1,6 @@
 ---
 layout: post
-title: C++ for Hackers
+title: C++ Resources, Lifetimes, and Ownership
 image: /images/dccppug_jan30_2020.jpg
 date: 2020-1-30 06:00
 tag: Talk for the Inaugural DC C++ User Group Meeting
