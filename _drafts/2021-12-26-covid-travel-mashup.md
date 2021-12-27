@@ -141,7 +141,7 @@ OK - let's interpret these results:
 data:  re.cases$residuals
 X-squared = 29.721, df = 1, p-value = 4.988e-08
 ```
-*Note 2: I tried computing Eigenvector Centrality of each state using the weighted, undirected graph of passenger data per day. This statistic is highly colinear with state population. When removing population, the adjusted R squared drops from .56 to .31.*
+*Note 2: I tried computing Eigenvector Centrality of each state using the weighted, directed graph of passenger data per day. This statistic is highly colinear with state population. When removing population, the adjusted R squared drops from .56 to .31.*
 
 ```R
 > summary(re.cases.cent <- plm(diff(covid_cases) ~ eigenvector_centrality
