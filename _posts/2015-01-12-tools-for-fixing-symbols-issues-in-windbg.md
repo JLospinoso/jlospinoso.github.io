@@ -2,7 +2,7 @@
 layout: post
 title: Tools for fixing symbols issues in WinDbg
 date: 2015-01-12 03:08
-image: /images/windbg.gif
+image: /images/windbg.svg
 tag: Symbols can give some trouble when WinDbg is first installed
 categories: [developing, kernel mode, operating systems, software, software engineering, windows internals]
 ---
@@ -39,11 +39,11 @@ Ensure that symbols still work (do a `.reload`), then have a look at your `.symp
 ```
 lkd> .sympath
 
-Symbol search path is: symsrv*symsrv.dll*C:\Symbols*http://msdl.microsoft.com/download/symbols
-Expanded Symbol search path is: symsrv*symsrv.dll*c:\windowssymbols*http://msdl.microsoft.com/download/symbols
+Symbol search path is: symsrv*symsrv.dll*C:\Symbols*https://msdl.microsoft.com/download/symbols
+Expanded Symbol search path is: symsrv*symsrv.dll*c:\windowssymbols*https://msdl.microsoft.com/download/symbols
 ************* Symbol Path validation summary **************
 Response Time (ms) Location
-Deferred symsrv*symsrv.dll*C:\WindowsSymbols*http://msdl.microsoft.com/download/symbols
+Deferred symsrv*symsrv.dll*C:\WindowsSymbols*https://msdl.microsoft.com/download/symbols
 ```
 
 Now set your `_NT_SYMBOL_PATH` using the output above.
@@ -56,6 +56,6 @@ Now set your `_NT_SYMBOL_PATH` using the output above.
 6. Variable name = `_NT_SYMBOL_PATH`
 7. Variable value:
 
-	`symsrv*symsrv.dll*C:\WindowsSymbols*http://msdl.microsoft.com/download/symbols`
+	`symsrv*symsrv.dll*C:\WindowsSymbols*https://msdl.microsoft.com/download/symbols`
 
 Close Windbg and open a new session. Ensure that symbols are fixed. If not, examine your  `.sympath` and ensure it does not differ from the settings that worked in your previous session.

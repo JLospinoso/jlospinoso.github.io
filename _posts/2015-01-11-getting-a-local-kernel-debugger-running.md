@@ -2,19 +2,19 @@
 layout: post
 title: Getting a Local Kernel Debugger Running
 date: 2015-01-11 19:12
-image: /images/2015_01_11_1.jpg
+image: /images/windbg.svg
 tag: A brief walkthrough for WinDbg in local kernel mode
 categories: [developing, kernel mode, operating systems, software, software engineering, windows internals]
 ---
 
 There is a steep learning curve when getting familiar with Windows Internals. As a first step, it is a good idea to get a local kernel debugger working on your machine. This will allow you to follow along with whatever learning materials are at hand (e.g. Windows Internals). Here's a minimal path to get windbg.exe (pronounced "Wind Bag") up and running:
 
-1. Install the latest [Debugging Tools for Windows](http://msdn.microsoft.com/en-us/windows/hardware/hh852365)
+1. Install the latest [Debugging Tools for Windows](https://msdn.microsoft.com/en-us/windows/hardware/hh852365)
 2. Navigate to the installation directory, e.g. `C:\Program Files\Debugging Tools for Windows (x64)`, in Explorer.
 3. Right click on windbg.exe and click `Run as Administrator`
 4. Create a folder for local symbols, e.g. `C:\LocalSymbols`
 5. With windbg.exe open, click `File > Symbol File Path`
-6. In Symbol File Path, `SRV*C:\LocalSymbols*http://msdl.microsoft.com/download/symbols`
+6. In Symbol File Path, `SRV*C:\LocalSymbols*https://msdl.microsoft.com/download/symbols`
 7. Click `File > Kernel Debug`
 8. Select the Local tab, press OK
 

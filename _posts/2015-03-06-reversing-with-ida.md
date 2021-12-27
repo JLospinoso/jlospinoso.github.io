@@ -2,24 +2,24 @@
 layout: post
 title: Getting Started with Reverse Engineering
 date: 2015-03-06 21:00
-image: /images/2015_03_03_1.JPG
+image: /images/reversing.svg
 tag: Basic static analysis with strings, dumpbin, and IDA
 categories: [developing, software, software engineering, reverse engineering, assembly]
 ---
-[1]: http://undocumented.ntinternals.net/
-[2]: http://blog.kaspersky.com/billion-dollar-apt-carbanak/
-[3]: http://www.metasploit.com/
+[1]: https://undocumented.ntinternals.net/
+[2]: https://blog.kaspersky.com/billion-dollar-apt-carbanak/
+[3]: https://www.metasploit.com/
 [4]: https://www.endgame.com/blog/defcon-capture-the-flag-qualification-challenge-1.html
-[5]: http://filebin.ca/1tq2s3LGLGcV/reversing-demo.exe
+[5]: https://github.com/JLospinoso/ReverseEngineering/raw/master/reversing-demo.exe
 [6]: https://www.hex-rays.com/products/ida/support/download.shtml
 [7]: https://technet.microsoft.com/en-us/sysinternals/bb842062
 [8]: https://msdn.microsoft.com/en-us/library/yd4f8bd1%28vs.71%29.aspx
-[9]: http://support.microsoft.com/kb/177429
+[9]: https://support.microsoft.com/kb/177429
 [10]: https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx
-[11]: http://filebin.ca/1tt5rHfH9IeI/ConsoleApplication1.zip
-[12]: http://filebin.ca/1tt64OgFqLGk/ConsoleApplication1.pdb
 [13]: https://msdn.microsoft.com/en-us/magazine/cc301805.aspx
 [14]: https://msdn.microsoft.com/query/dev12.query?appId=Dev12IDEF1&l=EN-US&k=k(__getmainargs);k(DevLang-C%2B%2B);k(TargetOS-Windows)&rd=true
+[15]: https://github.com/JLospinoso/ReverseEngineering
+[16]: https://github.com/JLospinoso/ReverseEngineering/raw/master/reversing-demo.pdb
 
 The ability to reverse engineer binaries is extremely important in many settings. Whether [analyzing malware][2] (or [writing malware][3]...), delving into [undocumented APIs][1], or even just [for fun][4], you will not have the source available. Any kind of thorough reversing effort will invariably involve staring at lots of assembly (or perhaps Java bytecode/.NET IL for managed code).
 
@@ -30,7 +30,7 @@ There are three kinds of reverse engineering analysis:
 3. *Hybrid analysis* is a mixture of the two. Iterating between static analysis of a codepath, followed by a detailed debugging (or vice versa!) can often lend insights greater than could be obtained by either alone.
 
 # A Simple Binary
-We'll be using [this simple binary][5] (MD5 checksum is `255134D98BC4A524A1777D16FF8C2642`). I've put the source at the end of the file (in the *Source* section).
+We'll be using [this simple binary][5] (SHA256 checksum is `0f838dbf8adc7ec7a937842ed26b0746c6699770eb3160868985feba2858599f`). I've put the source at the end of the file (in the *Source* section).
 
 # Strings
 One basic item of static analysis we can perform on a binary is to "run strings" on it. The Strings program, available for free as part of the [Sysinternals][7] suite of tools, dumps out all of the--you guessed it--strings that appear in the binary. Install Sysinternals and put it into your path. Navigate to the directory of the binary, and issue the command:
@@ -57,7 +57,7 @@ Usage: strings [option(s)] [file(s)]
   -h --help                 Display this information
   -v -V --version           Print the program's version number
 strings: supported targets: ...
-Report bugs to <http://www.sourceware.org/bugzilla/>
+Report bugs to <https://www.sourceware.org/bugzilla/>
 ```
 
 Let's give the defaults a try:
@@ -230,24 +230,24 @@ IDA will do a whole bunch of work at this point trying to disassemble your file.
 
 Let's do a very quick orientation to IDA. First thing to notice is the slider:
 
-![IDA Slider]({{site.url}}/images/2015_03_03_1/slider.jpg)
+![IDA Slider]({{site.baseurl}}/images/2015_03_03_1/slider.jpg)
 
 This slider allows you to click into a region of the binary and investigate its contents. For example,
 the pink region contains all of the `.idata` which is [PE Format][13] speak for all the imports. You can see function definitions that should correspond with our Dumpbin analysis from earlier (side project: investigate the "Exports" and "Imports" tabs to see if they correspond with the output we found).
 
 Clicking into a blue region navigates us to a `.text` section that contains all of our executable code (assembly):
 
-![IDA View Space]({{site.url}}/images/2015_03_03_1/ida_view_space.jpg)
+![IDA View Space]({{site.baseurl}}/images/2015_03_03_1/ida_view_space.jpg)
 
 You can scroll through this disassembly and, in theory, figure out what's going on from here. Fortunately, IDA has a graph version of this "IDA View" which can be accessed by pressing the `Space` bar:
 
-![IDA View]({{site.url}}/images/2015_03_03_1/ida_view.jpg)
+![IDA View]({{site.baseurl}}/images/2015_03_03_1/ida_view.jpg)
 
 This view is perhaps what IDA is best known for: each block represents a chunk of code, and the lines represent jumps between the code blocks (both conditional and unconditional). This is much, much easier to follow than scrolling through pages and pages of disassembly.
 
 The final window we'll explore is the strings view:
 
-![Strings]({{site.url}}/images/2015_03_03_1/strings.jpg)
+![Strings]({{site.baseurl}}/images/2015_03_03_1/strings.jpg)
 
 You'll notice that the output corresponds with what we got from running Strings earlier.
 
@@ -255,7 +255,7 @@ There are a great many ways to start analysis of a binary in IDA, but the most i
 
 Well, we ran the binary and nothing happened, but there's a `printf` statement that showed up in both Strings and Dumpbin. Take a look at the Strings window and identify the `printf` line. It should appear at `.rdata:0040232A`. Let's have a look at the `Imports` tab:
 
-![IDA Slider]({{site.url}}/images/2015_03_03_1/imports.jpg)
+![IDA Slider]({{site.baseurl}}/images/2015_03_03_1/imports.jpg)
 
 I've highlighted the line where `printf` is imported from `MSVCR120.dll`. Let's click on this entry, which brings us into the end of the `.idata` section:
 
@@ -266,11 +266,11 @@ I've highlighted the line where `printf` is imported from `MSVCR120.dll`. Let's 
 
 The IDA hotkey `x` is immensely useful here. We'd like to find out where else in the binary this import is referred to. After clicking on `printf`, press `x`:
 
-![IDA Slider]({{site.url}}/images/2015_03_03_1/xrefs.jpg)
+![IDA Slider]({{site.baseurl}}/images/2015_03_03_1/xrefs.jpg)
 
 We can see here that `printf` is referred to one time in a subroutine (`sub_401000`). Let's click on it and enter the graph view around this call.
 
-![Printf]({{site.url}}/images/2015_03_03_1/printf-routine.jpg)
+![Printf]({{site.baseurl}}/images/2015_03_03_1/printf-routine.jpg)
 
 This codepath looks like it is setting up a `printf`:
 
@@ -297,7 +297,7 @@ Let's track these characters throughout the code. `ebp` is the stack base pointe
 
 IDA helps us out by labeling each of these variables `var` and their positive offset from `ebp` (notice they are 4 byte offsets, starting with 4). We can rename these variables throughout the code to help us in our investigation. Simply click a variable, type `n` and enter a new name. Here, I've chosen to name each character by its order in the `printf` call:
 
-![PrintfNamed]({{site.url}}/images/2015_03_03_1/printf-routine-named.jpg)
+![PrintfNamed]({{site.baseurl}}/images/2015_03_03_1/printf-routine-named.jpg)
 
 Now it should be a little clearer what's going on. First, the stack gets set up with a base pointer, and 16 bytes (10h) are set aside for local variables:
 
@@ -343,17 +343,17 @@ retn
 # Putting it all together
 Okay, so static analysis of this function tells us that it takes a value, and if that value is `2`, we print four characters. If not, we exit. Let's name the function `PrintIfTwo` by selecting its current name, `sub_401000`, and pressing `n`:
 
-![PrintIfTwo]({{site.url}}/images/2015_03_03_1/print-if-two.jpg)
+![PrintIfTwo]({{site.baseurl}}/images/2015_03_03_1/print-if-two.jpg)
 
 Now that our function is named, let's see where it's getting called. With `PrintIfTwo` still selected, press `x`. It seems that it's only called from one location, so select it.
 
-![Initenv]({{site.url}}/images/2015_03_03_1/initenv.jpg)
+![Initenv]({{site.baseurl}}/images/2015_03_03_1/initenv.jpg)
 
 It turns out that `__initenv` is the last function that the C Runtime invokes before handing off control to our code.  Our `JumpIfTwo` function takes one argument, so we are only interested in the last variable to get pushed onto the stack just before our call: `dword_403024`. Let's rename this `PrintIfTwoArgument` and press `x` again to see where this variable is set.
 
 The only other function calling `PrintIfTwoArgument` is `sub_401124+2b`. Let's navigate there and see what's going on:
 
-![GetMainArgs]({{site.url}}/images/2015_03_03_1/getmainargs.jpg)
+![GetMainArgs]({{site.baseurl}}/images/2015_03_03_1/getmainargs.jpg)
 
 `__getmainargs` is a C Runtime call that--you guessed it--[gets the main arguments][14]:
 
@@ -412,7 +412,12 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-### Links to Binary/PDB
-* [Source][12] (MD5: CB2EE7B867334D1AD8844E7F03EB89B9)
-* [PDB][11] (MD5: AFC2ADB7ED0E2C01AE1EAEDB5FA78B80)
-* [Binary][5] (MD5: 255134D98BC4A524A1777D16FF8C2642)
+### Obtaining the source
+
+The project is [available on Github][15]. To clone, simply issue the following command:
+
+```
+git clone git@github.com:JLospinoso/ReverseEngineering.git
+```
+
+The PDB is available [here][16].

@@ -3,3 +3,5 @@ _site/
 *.swp
 *~
 *.lock
+.idea/
+.DS_Store

@@ -2,20 +2,20 @@
 layout: post
 title: Jekyll via Github
 date: 2015-03-01 15:00
-image: /images/jekyll.png
+image: /images/jekyll.svg
 tag: Github will host your Jekyll blog for free!
 categories: [developing, blogging, github, jekyll]
 ---
-[1]: http://jekyllrb.com/
+[1]: https://jekyllrb.com/
 [2]: https://help.github.com/articles/using-jekyll-with-pages/
 [3]: https://github.com/jekyll/jekyll/wiki/sites
 [4]: https://github.com/JLospinoso/jlospinoso.github.io
-[5]: http://import.jekyllrb.com/docs/home/
-[6]: http://daringfireball.net/projects/markdown/syntax
+[5]: https://import.jekyllrb.com/docs/home/
+[6]: https://daringfireball.net/projects/markdown/syntax
 [7]: https://wordpress.com/
 [8]: https://help.github.com/articles/using-jekyll-with-pages/#installing-jekyll
 [9]: https://www.ruby-lang.org/
-[10]: http://bundler.io/
+[10]: https://bundler.io/
 [11]: https://github.com/join
 [12]: https://pages.github.com/
 [13]: https://chocolatey.org/
@@ -37,7 +37,7 @@ It's pretty easy to use Markdown:
 * Once you get used to the syntax,
 * it's a breeze to make lists!
 
-And also to hyperlink to my favorite sites, like <http://lospi.net>.
+And also to hyperlink to my favorite sites, like <https://lospi.net>.
 ```
 
 # Why bother?
@@ -72,7 +72,7 @@ You can now navigate into the site's folder, e.g. `jlospinoso.github.io.git`, an
 cd jlospinoso.github.io.git
 bundle exec jekyll serve
 ```
-Fire up your favorite web browser and navigate to `http://127.0.0.1:4000/`.
+Fire up your favorite web browser and navigate to `https://127.0.0.1:4000/`.
 
 You can inspect the contents of the cloned repository to get an idea of how Jekyll generates content. The *finished product* is contained in the `_sites` folder (and should not be manually edited). Check out [Jekyll][1] documentation for an exhaustive list of the powerful things you can do--but here are a few items to get you started:
 

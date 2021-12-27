@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Sending Subliminal Messages via Twitter Retweets
-image: /images/retweet.jpg
+image: /images/TwitterSubliminal.png
 date: 2016-02-06 22:00
 tag: Use cryptographic hashing to send subliminal messages via retweets.
 categories: [subliminal-channel, twitter, poco, cryptography, c++, developing, software]
@@ -10,26 +10,26 @@ categories: [subliminal-channel, twitter, poco, cryptography, c++, developing, s
 [2]: https://dev.twitter.com/streaming/public
 [3]: https://dev.twitter.com/rest/public
 [4]: https://www.emsec.rub.de/media/crypto/attachments/files/2011/03/subliminal_channels.pdf
-[5]: http://cs.gmu.edu/~zduric/cs803/Simmons.pdf
+[5]: https://cs.gmu.edu/~zduric/cs803/Simmons.pdf
 [6]: https://twitter.com/subl1minal
 [7]: https://en.wikipedia.org/wiki/SHA-1
 [8]: https://en.wikipedia.org/wiki/Negative_binomial_distribution
-[9]: http://pocoproject.org/
+[9]: https://pocoproject.org/
 [10]: https://www.gnupg.org/
-[11]: http://filebin.ca/
-[12]: http://turl.ca/vypavh
-[13]: http://martinolivier.com/open/stegoverview.pdf
-[14]: http://www.garykessler.net/library/fsc_stego.html
+[11]: https://filebin.ca/
+[12]: https://turl.ca/vypavh
+[13]: https://martinolivier.com/open/stegoverview.pdf
+[14]: https://www.garykessler.net/library/fsc_stego.html
 [15]: https://dev.twitter.com/rest/reference/get/application/rate_limit_status
 [16]: https://github.com/google/googletest
-[17]: http://www.nptechforgood.com/2010/10/31/is-it-better-to-retweet-old-school-style-or-use-use-twitters-retweet-function/
+[17]: https://www.nptechforgood.com/2010/10/31/is-it-better-to-retweet-old-school-style-or-use-use-twitters-retweet-function/
 [18]: https://en.wikipedia.org/wiki/Dependency_injection
 [19]: https://en.wikipedia.org/wiki/Generator_%28computer_programming%29
-[20]: http://en.cppreference.com/w/cpp/thread/future
+[20]: https://en.cppreference.com/w/cpp/thread/future
 [21]: https://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization
 [22]: https://dev.twitter.com/overview/api/twitter-libraries
 [23]: https://curl.haxx.se/libcurl/
-[24]: http://en.cppreference.com/w/cpp/utility/bitset
+[24]: https://en.cppreference.com/w/cpp/utility/bitset
 
 [twitter-subliminal][1] is a suite applications for communicating
 [subliminal messages][4] over Twitter. Messages are encoded by finding sub-collisions

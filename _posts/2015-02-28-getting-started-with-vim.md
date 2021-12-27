@@ -2,19 +2,19 @@
 layout: post
 title: Getting started with Vim
 date: 2015-02-28 17:37
-image: /images/vim.jpg
+image: /images/vim.svg
 tag: Vim is an excellent tool to master, but it has quite a learning curve
 categories: [developing, software, vim]
 ---
-[1]: http://en.wikipedia.org/wiki/Vi
-[2]: http://www.amazon.com/The-Pragmatic-Programmer-Journeyman-Master/dp/020161622X
-[3]: http://www.vim.org/download.php
-[4]: http://vim.rtorr.com/
+[1]: https://en.wikipedia.org/wiki/Vi
+[2]: https://www.amazon.com/The-Pragmatic-Programmer-Journeyman-Master/dp/020161622X
+[3]: https://www.vim.org/download.php
+[4]: https://vim.rtorr.com/
 [5]:  https://pascalprecht.github.io/2014/03/18/why-i-use-vim/
-[vim1]: {{site.url}}/images/2015-02-28_1.jpg "Normal Mode on Vim"
-[vim2]: {{site.url}}/images/2015-02-28_2.jpg "Insert Mode on Vim"
-[vim3]: {{site.url}}/images/2015-02-28_3.jpg "Text Inserted"
-[vim4]: {{site.url}}/images/2015-02-28_4.jpg "Learning Curve"
+[vim1]: {{site.baseurl}}/images/2015-02-28_1.jpg "Normal Mode on Vim"
+[vim2]: {{site.baseurl}}/images/2015-02-28_2.jpg "Insert Mode on Vim"
+[vim3]: {{site.baseurl}}/images/2015-02-28_3.jpg "Text Inserted"
+[vim4]: {{site.baseurl}}/images/2015-02-28_4.jpg "Learning Curve"
 
 Learning to use Vim can be a great investment. It's installed on many platform by default (well, at least its ancestor [Vi][1]), highly customizable, and regardless of what you're editing--config files, source from various languages, etc.--it is highly portable. In [The Pragmatic Programmer][2], we are encouraged to become masters at editors like Vim and Emacs just as a woodworker must become a master at hand tools.
 
@@ -57,8 +57,8 @@ Vim has a notoriously steep learning curve. Well, it's more like a wall (from [p
 
 Here are some important resources that can help to ease the pain:
 
-* [Another cheat sheet](http://www.angelwatt.com/coding/notes/vim-commands.html)
-* [VimDoc](http://vimdoc.sourceforge.net/)
+* [Another cheat sheet](https://www.angelwatt.com/coding/notes/vim-commands.html)
+* [VimDoc](https://vimdoc.sourceforge.net/)
 * [Steve Oualline's Vim book](ftp://ftp.vim.org/pub/vim/doc/book/vimbook-OPL.pdf)
-* [Interactive Vim tutorial](http://www.openvim.com/" target="_blank">http://www.openvim.com/)
+* [Interactive Vim tutorial](https://www.openvim.com/" target="_blank">https://www.openvim.com/)
 * [Daniel Miessler's screencast](https://danielmiessler.com/blog/vim-primer-screencast/)
