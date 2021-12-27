@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Mashing CDC and TSA Data
-image: /images/CDC-TSA-Mashup.svg
+image: /images/cdc-dot-mashup.png
 date: 2021-12-26 06:00
 tag: Airline Travel Is Correlated with COVID Cases
 categories: [data, statistics, covid, cdc, tsa, R]
