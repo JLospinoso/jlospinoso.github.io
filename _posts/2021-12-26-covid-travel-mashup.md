@@ -19,7 +19,7 @@ The CDC provides [COVID 19 case/death data](https://data.cdc.gov/Case-Surveillan
 ### 3. Wikipedia State Populations
 Finally, I've pulled state population data from [Wikipedia](https://simple.wikipedia.org/wiki/List_of_U.S._states_by_population). I used linear interpolation to model quarterly state-level populations in the data frame [here](https://github.com/JLospinoso/covid-airlines/blob/main/populations-out.csv).
 
-# All Together and the Aggregate Inbound Statistic
+## All Together and the Aggregate Inbound Statistic
 Joining these datasets, I created a panel of the eight quarters in 2020 and 2021 for each state containing the following columns:
 
 - year/quarter
@@ -141,7 +141,7 @@ OK - let's interpret these results:
 data:  re.cases$residuals
 X-squared = 29.721, df = 1, p-value = 4.988e-08
 ```
-* Note 2: I tried computing Eigenvector Centrality of each state using the weighted, undirected graph of passenger data per day. This statistic is highly colinear with state population. When removing population, the adjusted R squared drops from .56 to .31.
+*Note 2: I tried computing Eigenvector Centrality of each state using the weighted, undirected graph of passenger data per day. This statistic is highly colinear with state population. When removing population, the adjusted R squared drops from .56 to .31.*
 
 ```R
 > summary(re.cases.cent <- plm(diff(covid_cases) ~ eigenvector_centrality
