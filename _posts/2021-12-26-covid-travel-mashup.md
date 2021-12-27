@@ -8,15 +8,15 @@ categories: [data, statistics, covid, cdc, tsa, R]
 ---
 [COVID spreads when infected people breathe, potentially spreading it to others sharing space with them.](https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/how-covid-spreads.html) It shouldn't be a surprise that when infected people travel, they help to spread COVID. In this post, I take airline travel data from the [US Department of Transportation](https://data.transportation.gov/Aviation/Consumer-Airfare-Report-Table-6-Contiguous-State-C/yj5y-b2ir) and mash it with [COVID 19 case/death data](https://data.cdc.gov/Case-Surveillance/United-States-COVID-19-Cases-and-Deaths-by-State-o/9mfq-cb36) and [Vaccination data](https://data.cdc.gov/Vaccinations/COVID-19-Vaccinations-in-the-United-States-Jurisdi/unsk-b7fc) from the CDC to show that variations in state-to-state US air travel are correlated with COVID 19 case and death prevalence.
 
-The analysis suggests that, all else equal, an infected passenger transiting from one state to another is correlated with roughly a 38 COVID case increase in the following quarter.
+The analysis suggests that, all else equal, an infected passenger transiting from one state to another is correlated with roughly a 38 COVID case increase in the following quarter. We'll pull from three datasets:
 
-# DoT Consumer Airfare Data
+### 1. DoT Consumer Airfare Data
 The Department of Transportation provides a quarterly Consumer Airfare Report containing passenger counts for "Contiguous State City-Pair Markets That Average At Least 10 Passengers Per Day." You can access the DoT data export [here](https://data.transportation.gov/Aviation/Consumer-Airfare-Report-Table-6-Contiguous-State-C/yj5y-b2ir). I've cleaned this data and made it available [here](https://media.githubusercontent.com/media/JLospinoso/covid-airlines/main/travel-out.csv) as well.
 
-# CDC Case/Death and Vaccination Data
+### 2. CDC Case/Death and Vaccination Data
 The CDC provides [COVID 19 case/death data](https://data.cdc.gov/Case-Surveillance/United-States-COVID-19-Cases-and-Deaths-by-State-o/9mfq-cb36) as well as [Vaccination data](https://data.cdc.gov/Vaccinations/COVID-19-Vaccinations-in-the-United-States-Jurisdi/unsk-b7fc). I've massaged this into quarterly data with the same state abbreviation codes as the DoT Consumer Airfare Data. I've also differenced the case and death data by quarter, meaning that you can model increases rather than cumulative values. These transformed datasets are available [here](https://media.githubusercontent.com/media/JLospinoso/covid-airlines/main/cases-out.csv) and [here](https://media.githubusercontent.com/media/JLospinoso/covid-airlines/main/vaccinations-out.csv).
 
-# Wikipedia State Populations
+### 3. Wikipedia State Populations
 Finally, I've pulled state population data from [Wikipedia](https://simple.wikipedia.org/wiki/List_of_U.S._states_by_population). I used linear interpolation to model quarterly state-level populations in the data frame [here](https://github.com/JLospinoso/covid-airlines/blob/main/populations-out.csv).
 
 # All Together and the Aggregate Inbound Statistic
