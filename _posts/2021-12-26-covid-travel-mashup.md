@@ -37,12 +37,6 @@ The idea is that, very roughly, `(State_X change in COVID Cases) / (State_X popu
 
 This panel is available [here](https://media.githubusercontent.com/media/JLospinoso/covid-airlines/main/panel.csv).
 
-# Summarizing the Panel
-
-<svg>
-  <circle style="fill: #69b3a2" stroke="black" cx=50 cy=50 r=40></circle>
-</svg>
-
 # Modeling the Aggregate Inbound Effect
 
 Our task is to determine the impact of Aggregate Inbound Cases/Deaths on a state's next quarter COVID case/death count. [ARIMA](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average) models are the go-to statistical tool for panel data. You can use them to determine the correlation between Aggregate Inbound Cases/Deaths on a state's next quarter COVID case/death count. You can get all set up in R:
