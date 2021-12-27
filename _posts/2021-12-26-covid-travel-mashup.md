@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Mashing CDC and TSA Data
+title: Mashing CDC and DoT Data
 image: /images/cdc-dot-mashup.png
 date: 2021-12-26 06:00
 tag: Airline Travel Is Correlated with COVID Cases
-categories: [data, statistics, covid, cdc, tsa, R]
+categories: [data, statistics, covid, cdc, R]
 ---
 [COVID spreads when infected people breathe, potentially spreading it to others sharing space with them.](https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/how-covid-spreads.html) It shouldn't be a surprise that when infected people travel, they help to spread COVID. In this post, I take airline travel data from the [US Department of Transportation](https://data.transportation.gov/Aviation/Consumer-Airfare-Report-Table-6-Contiguous-State-C/yj5y-b2ir) and mash it with [COVID 19 case/death data](https://data.cdc.gov/Case-Surveillance/United-States-COVID-19-Cases-and-Deaths-by-State-o/9mfq-cb36) and [Vaccination data](https://data.cdc.gov/Vaccinations/COVID-19-Vaccinations-in-the-United-States-Jurisdi/unsk-b7fc) from the CDC to show that variations in state-to-state US air travel are correlated with COVID 19 case and death prevalence.
 
