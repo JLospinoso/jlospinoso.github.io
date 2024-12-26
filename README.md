@@ -1,6 +1,6 @@
 This site is automatically transformed by [Jekyll](https://github.com/mojombo/jekyll) into a static site whenever I push
 this repository to GitHub.
-
+ 
 # License
 
 The following directories and their contents are Copyright Josh Lospinoso. You may not reuse anything therein without my permission:
